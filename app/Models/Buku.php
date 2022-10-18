@@ -16,6 +16,6 @@ class Buku extends Model
     }
 
     public function detail_pemesanan(){
-        return $this -> hasOne(detailPemesanan::class);
+        return $this -> hasMany(detailPemesanan::class);
     }
 }
