@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 
 class customerController extends Controller
 {
@@ -24,7 +26,11 @@ class customerController extends Controller
      */
     public function create()
     {
-        //
+        $provinsi = json_decode(Http::get('https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json'));
+
+        return view('customer.register', [
+            'provinsi' => $provinsi
+        ]);
     }
 
     /**
@@ -35,7 +41,24 @@ class customerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        
+        $validate = $request->validate([
+            'username' => 'unique:customers|required|max:20|min:4',
+            'nama' => 'required',
+            'email' => 'unique:customers|required|email',
+            'password' => 'required|min:5|max:255',
+            'nomortelp' => 'required',
+            'jenis_kelamin' => 'required'
+        ]);
+
+        // dd($validate);
+
+        $validate['password'] = Hash::make($validate['password']);
+
+        Customer::create($validate);
+        
+        return redirect('/');
     }
 
     /**

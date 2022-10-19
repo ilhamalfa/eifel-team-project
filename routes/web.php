@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\customerController;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.dashboard');
 });
+
+Route::resource('customer', customerController::class);

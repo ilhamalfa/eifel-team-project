@@ -19,11 +19,11 @@ return new class extends Migration
             $table->string('nama');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('provinsi');
-            $table->string('kabkota');
-            $table->string('kecamatan');
-            $table->string('kelurahan');
-            $table->string('detail_alamat');
+            $table->string('provinsi')->nullable();
+            $table->string('kabkota')->nullable();
+            $table->string('kecamatan')->nullable();
+            $table->string('kelurahan')->nullable();
+            $table->string('detail_alamat')->nullable();
             $table->string('nomortelp');
             $table->string('jenis_kelamin');
             $table->timestamps();
