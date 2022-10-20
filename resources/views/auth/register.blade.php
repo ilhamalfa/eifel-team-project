@@ -33,77 +33,28 @@
   </head>
 
   <body class="">
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent mt-4">
-      <div class="container">
-        <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="../pages/dashboard.html"> Soft UI Dashboard </a>
-        <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon mt-2">
-            <span class="navbar-toggler-bar bar1"></span>
-            <span class="navbar-toggler-bar bar2"></span>
-            <span class="navbar-toggler-bar bar3"></span>
-          </span>
-        </button>
-        <div class="collapse navbar-collapse" id="navigation">
-          <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="../pages/dashboard.html">
-                <i class="fa fa-chart-pie opacity-6 me-1"></i>
-                Dashboard
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link me-2" href="../pages/profile.html">
-                <i class="fa fa-user opacity-6 me-1"></i>
-                Profile
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link me-2" href="../pages/sign-up.html">
-                <i class="fas fa-user-circle opacity-6 me-1"></i>
-                Sign Up
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link me-2" href="../pages/sign-in.html">
-                <i class="fas fa-key opacity-6 me-1"></i>
-                Sign In
-              </a>
-            </li>
-          </ul>
-          <li class="nav-item d-flex align-items-center">
-            <a class="btn btn-round btn-sm mb-0 btn-outline-white me-2" target="_blank" href="https://www.creative-tim.com/builder/soft-ui?ref=navbar-dashboard">Online Builder</a>
-          </li>
-          <ul class="navbar-nav d-lg-block d-none">
-            <li class="nav-item">
-              <a href="https://www.creative-tim.com/product/soft-ui-dashboard" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-light">Free download</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- End Navbar -->
+
     <main class="main-content mt-0">
       <section class="min-vh-100 mb-8">
         <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('../assets/img/curved-images/curved14.jpg')">
           <span class="mask bg-gradient-dark opacity-6"></span>
           <div class="container">
             <div class="row justify-content-center">
-              <div class="col-lg-5 text-center mx-auto">
+              {{-- <div class="col-lg-5 text-center mx-auto">
                 <h2 class="text-white mb-2 mt-5">Welcome to Bookmates!</h2>
                 <p class="text-lead text-white">A room without books is like a body without a soul.</p>
-              </div>
+              </div> --}}
             </div>
           </div>
         </div>
         <div class="container">
-          <div class="row mt-lg-n10 mt-md-n11 mt-n10">
+          <div class="row" style="margin-top: -300px">
             <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
               <div class="card z-index-0">
                 <div class="card-header text-center pt-4">
-                  <h5>{{ __('Register') }} here</h5>
+                  <h3>Register to Bookmates!</h3>
                 </div>
-                <div class="row px-xl-5 px-sm-4 px-3">
+                {{-- <div class="row px-xl-5 px-sm-4 px-3">
                   <div class="col-3 ms-auto px-1">
                     <a class="btn btn-outline-light w-100" href="javascript:;">
                       <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink32">
@@ -167,46 +118,82 @@
                   <div class="mt-2 position-relative text-center">
                     <p class="text-sm font-weight-bold mb-2 text-secondary text-border d-inline z-index-2 bg-white px-3">or</p>
                   </div>
-                </div>
-                <div class="card-body">
-                  <form method="POST" action="{{ route('register') }}" role="form text-left">
+                </div> --}}
+                <div class="card-body" style="margin-top: -20px">
+                  <form method="POST" action="{{ route('register') }}">
                     @csrf
                     <div class="mb-3">
-                      <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name" aria-label="Name" aria-describedby="email-addon" />
-                      @error('name')
+                      <input type="text" id="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autofocus placeholder="Username" />
+                      @error('username')
                         <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
+                        {{ $message }}
                         </span>
                       @enderror
                     </div>
+
                     <div class="mb-3">
-                      <input type="email" id="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email" aria-label="Email" aria-describedby="email-addon" />
+                      <input type="text" id="nama" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" required placeholder="Nama" />
+                      @error('nama')
+                        <span class="invalid-feedback" role="alert">
+                        {{ $message }}
+                        </span>
+                      @enderror
+                    </div>
+
+                    <div class="mb-3">
+                      <input type="email" id="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required placeholder="Email"/>
                       @error('email')
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
+                            {{ $message }}
                         </span>
                       @enderror
                     </div>
+
                     <div class="mb-3">
-                      <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password" aria-label="Password" aria-describedby="password-addon" />
+                      <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" name="password" required  placeholder="Password"/>
                       @error('password')
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
+                            {{ $message }}
                         </span>
                       @enderror
                     </div>
+
                     <div class="mb-3">
-                      <input type="password" id="password-confirm" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password" aria-label="Password" aria-describedby="password-addon" />
-                      @error('password')
+                      <input type="password" id="password-confirm" class="form-control" name="password_confirmation" required placeholder="Confirm Password"/>
+                      @error('password-confirm')
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
+                            {{ $message }}
                         </span>
                       @enderror
                     </div>
+
+                    <div class="mb-3">
+                      <input type="number" class="form-control  @error('nomortelp') is-invalid @enderror" name="nomortelp" required placeholder="Nomor Telp" value="{{ old('nomortelp') }}"/>
+                      @error('nomortelp')
+                        <span class="invalid-feedback" role="alert">
+                            {{ $message }}
+                        </span>
+                      @enderror
+                    </div>
+
+                    <div class="mb-3">
+                      <select class="form-select form-select-lg mb-3 @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin">
+                        <option selected value="">Jenis Kelamin</option>
+                        <option value="L">Laki-Laki</option>
+                        <option value="P">Perempuan</option>
+                      </select>
+                      @error('jenis_kelamin')
+                        <span class="invalid-feedback" role="alert">
+                            {{ $message }}
+                        </span>
+                      @enderror
+                    </div>
+
                     <div class="form-check form-check-info text-left">
                       <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked />
                       <label class="form-check-label" for="flexCheckDefault"> I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions</a> </label>
                     </div>
+                    
                     <div class="text-center">
                       <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">{{ __('Register') }}</button>
                     </div>
@@ -219,7 +206,7 @@
         </div>
       </section>
       <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
-      <footer class="footer py-5">
+      {{-- <footer class="footer py-5">
         <div class="container">
           <div class="row">
             <div class="col-lg-8 mb-4 mx-auto text-center">
@@ -260,7 +247,7 @@
             </div>
           </div>
         </div>
-      </footer>
+      </footer> --}}
       <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
     </main>
     <!--   Core JS Files   -->
@@ -283,98 +270,3 @@
     <script src="{{ asset('assets/js/soft-ui-dashboard.min.js?v=1.0.6') }}"></script>
   </body>
 </html>
-
-
-{{-- @extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        {{-- Username --}}
-                        <div class="row mb-3">
-                            <label for="username" class="col-md-4 col-form-label text-md-end">{{ __('Username') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
-
-                                @error('username')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        {{-- Nama --}}
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name">
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection --}}

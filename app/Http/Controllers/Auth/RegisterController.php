@@ -48,27 +48,32 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'username' => ['required', 'string', 'alpha_dash', 'unique:customers', 'max:25', 'min:3'],
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:customers'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+            return Validator::make($data, [
+                'username' => ['required', 'string', 'alpha_dash', 'unique:customers', 'max:25', 'min:3'],
+                'nama' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:customers'],
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
+                'nomortelp' => ['required'],
+                'jenis_kelamin' => ['required'],
+            ]);
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\Models\User
+     * @return \App\Models\Customer
      */
     protected function create(array $data)
     {
+
         return Customer::create([
             'username' => $data['username'],
-            'name' => $data['name'],
+            'nama' => $data['nama'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'nomortelp' => $data['nomortelp'],
+            'jenis_kelamin' => $data['jenis_kelamin']
         ]);
     }
 }
