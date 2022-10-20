@@ -853,7 +853,6 @@
         },
         {
             "name": "laravel/framework",
-<<<<<<< HEAD
             "version": "v9.36.2",
             "source": {
                 "type": "git",
@@ -864,18 +863,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/0bcd350eec1974c9f912f129368587ef7e43722b",
                 "reference": "0bcd350eec1974c9f912f129368587ef7e43722b",
-=======
-            "version": "v9.35.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/framework.git",
-                "reference": "b7af7ff35497eb1c4e61652f522a862164dbba5a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/b7af7ff35497eb1c4e61652f522a862164dbba5a",
-                "reference": "b7af7ff35497eb1c4e61652f522a862164dbba5a",
->>>>>>> ff1c968a7207907ea0c263bd02b62fdcc234521f
                 "shasum": ""
             },
             "require": {
@@ -1043,11 +1030,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-<<<<<<< HEAD
             "time": "2022-10-11T17:30:47+00:00"
-=======
-            "time": "2022-10-04T13:33:43+00:00"
->>>>>>> ff1c968a7207907ea0c263bd02b62fdcc234521f
         },
         {
             "name": "laravel/sanctum",
@@ -1459,11 +1442,7 @@
         },
         {
             "name": "league/flysystem",
-<<<<<<< HEAD
             "version": "3.9.0",
-=======
-            "version": "3.5.2",
->>>>>>> ff1c968a7207907ea0c263bd02b62fdcc234521f
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
@@ -1471,13 +1450,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
                 "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/60f3760352fe08e918bc3b1acae4e91af092ebe1",
                 "reference": "60f3760352fe08e918bc3b1acae4e91af092ebe1",
-=======
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/c73c4eb31f2e883b3897ab5591aa2dbc48112433",
-                "reference": "c73c4eb31f2e883b3897ab5591aa2dbc48112433",
->>>>>>> ff1c968a7207907ea0c263bd02b62fdcc234521f
                 "shasum": ""
             },
             "require": {
@@ -1537,11 +1511,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-<<<<<<< HEAD
                 "source": "https://github.com/thephpleague/flysystem/tree/3.9.0"
-=======
-                "source": "https://github.com/thephpleague/flysystem/tree/3.5.2"
->>>>>>> ff1c968a7207907ea0c263bd02b62fdcc234521f
             },
             "funding": [
                 {
@@ -1557,11 +1527,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
             "time": "2022-10-13T20:05:14+00:00"
-=======
-            "time": "2022-09-23T18:59:16+00:00"
->>>>>>> ff1c968a7207907ea0c263bd02b62fdcc234521f
         },
         {
             "name": "league/mime-type-detection",
