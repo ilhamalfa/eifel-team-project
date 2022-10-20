@@ -9,6 +9,16 @@ class Buku extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'judul',
+        'penulis',
+        'penerbit',
+        'sinopsis',
+        'jumlah',
+        'harga',
+        'kategori_id'
+    ];
+
     protected $guarded = ['id'];
 
     public function kategori(){
