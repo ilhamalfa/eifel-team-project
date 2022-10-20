@@ -38,3 +38,7 @@ Route::get('/updatedatabook/{id}', [TableBookController::class, 'edit']);
 Route::put('/tablebook/{id}', [TableBookController::class, 'update']);
 
 Route::get('/tablebook/{id}', [TableBookController::class, 'delete']);
+
+Route::get('userhomepage', function () {
+    return view('userhomepage');
+});
