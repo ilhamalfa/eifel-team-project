@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Buku;
 use App\Models\kategori;
 use Illuminate\Http\Request;
 
-class TableBookController extends Controller
+class TableKategoriController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class TableBookController extends Controller
      */
     public function index()
     {
-        $data = Buku::all();
-        return view('book/tablebook', ['listbuku' => $data]);
+        $data = kategori::all();
+        return view('tablekategori', ['listkategori' => $data]);
     }
 
     /**
@@ -26,9 +25,7 @@ class TableBookController extends Controller
      */
     public function create()
     {
-        // $create = kategori::select('id', 'jenis_kategori')->get();
-        $foreign = kategori::all();
-        return view('book/createdatabook', ['kategori' => $foreign]);
+        //
     }
 
     /**
@@ -39,8 +36,7 @@ class TableBookController extends Controller
      */
     public function store(Request $request)
     {
-        $buku = Buku::create($request->all());
-        return redirect('/tablebook');
+        //
     }
 
     /**
@@ -60,11 +56,9 @@ class TableBookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $id)
+    public function edit($id)
     {
-        $buku = Buku::with('kategori')->findOrFail($id);
-        $kategori = kategori::where('id', '!=', $buku->kategori_id)->get(['id', 'jenis_kategori']);
-        return view('book/updatedatabook', ['buku' => $buku, 'kategori' => $kategori]);
+        //
     }
 
     /**
@@ -76,9 +70,7 @@ class TableBookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $buku = Buku::findOrFail($id);
-        $buku->update($request->all());
-        return redirect('/tablebook');
+        //
     }
 
     /**
@@ -87,11 +79,8 @@ class TableBookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete($id)
+    public function destroy($id)
     {
-        // dd($id);
-        $buku = Buku::find($id);
-        $buku->delete();
-        return redirect('tablebook');
+        //
     }
 }
