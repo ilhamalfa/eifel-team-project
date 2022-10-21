@@ -23,7 +23,7 @@
                     <td>{{ $list->jenis_kategori }}</td>
                     <td>
                         <a href="updatedatabook/{{ $list->id }}" class="btn">Edit</a>
-                        <a href="tablebook/{{ $list->id }}" class="btn" onclick="return confirm('yakin mau hapus')">Hapus</a>
+                        <a href="tablebook/{{ $list->id }}" class="btn" onclick="return confirm('Anda yakin akan menghapus data?')">Hapus</a>
                     </td>
                 </tr>
                 @endforeach

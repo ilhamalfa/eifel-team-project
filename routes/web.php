@@ -36,6 +36,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //     return view('tablebook');
 // });
 
+//Route Table Book
+
 Route::get('/tablebook', [TableBookController::class, 'index']);
 
 Route::get('/createdatabook', [TableBookController::class, 'create']);
@@ -48,4 +50,14 @@ Route::put('/tablebook/{id}', [TableBookController::class, 'update']);
 
 Route::get('/tablebook/{id}', [TableBookController::class, 'delete']);
 
+//Route Table Kategori
+
 Route::get('/tablekategori', [TableKategoriController::class, 'index']);
+
+Route::get('/createdatakategori', [TableKategoriController::class, 'create']);
+
+Route::post('/tablekategori', [TableKategoriController::class, 'store']);
+
+Route::get('/updatedatakategori/{id}', [TableKategoriController::class, 'edit']);
+
+Route::put('/tablekategori/{id}', [TableKategoriController::class, 'update']);

@@ -15,7 +15,7 @@ class TableKategoriController extends Controller
     public function index()
     {
         $data = kategori::all();
-        return view('tablekategori', ['listkategori' => $data]);
+        return view('kategori/tablekategori', ['listkategori' => $data]);
     }
 
     /**
@@ -25,7 +25,8 @@ class TableKategoriController extends Controller
      */
     public function create()
     {
-        //
+        $data = kategori::all();
+        return view('kategori/createdatakategori', compact('data'));
     }
 
     /**
@@ -36,7 +37,8 @@ class TableKategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kategori = kategori::create($request->all());
+        return redirect('/tablekategori');
     }
 
     /**
@@ -56,9 +58,10 @@ class TableKategoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        $kategori = kategori::findOrFail($id);
+        return view('kategori/updatedatakategori', ['kategori' => $kategori]);
     }
 
     /**
@@ -70,7 +73,9 @@ class TableKategoriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kategori = kategori::findOrFail($id);
+        $kategori->update($request->all());
+        return redirect('/tablekategori');
     }
 
     /**
@@ -79,8 +84,11 @@ class TableKategoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        // dd($id);
+        $kategori = kategori::find($id);
+        $kategori->delete();
+        return redirect('tablekategori');
     }
 }
