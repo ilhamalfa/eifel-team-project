@@ -42,8 +42,19 @@ class TableBookController extends Controller
      */
     public function store(Request $request)
     {
-        $buku = Buku::create($request->all());
-        return redirect('/tablebook');
+        $validate = $request->validate([
+            'judul' => 'required',
+            'penulis' => 'required|string',
+            'penerbit' => 'required|string',
+            'sinopsis' => 'required|string',
+            'jumlah' => 'required|integer',
+            'harga' => 'required|integer',
+            'kategori_id' => 'required|integer'
+        ]);
+
+        Buku::create($validate);
+
+        return redirect(url('buku'));
     }
 
     /**
