@@ -32,7 +32,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //     return view('tablebook');
 // });
 
-Route::resource('admin/buku', TableBookController::class);
+Route::resource('buku', TableBookController::class);
 
 Route::get('/tablebook', [TableBookController::class, 'index']);
 
