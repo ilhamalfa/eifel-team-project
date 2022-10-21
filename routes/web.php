@@ -32,6 +32,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //     return view('tablebook');
 // });
 
+Route::resource('admin/buku', TableBookController::class);
+
 Route::get('/tablebook', [TableBookController::class, 'index']);
 
 Route::get('/createdatabook', [TableBookController::class, 'create']);
