@@ -16,14 +16,10 @@ class TableBookController extends Controller
     public function index()
     {
         $data = Buku::all();
-<<<<<<< HEAD
-        return view('book/tablebook', ['listbuku' => $data]);
-=======
 
         return view('admin.daftar-buku.index', [
             'listbuku' => $data
         ]);
->>>>>>> 6e2ac5e25c5d5adaeb4b50bf319a418a3c9d4786
     }
 
     /**
@@ -35,11 +31,7 @@ class TableBookController extends Controller
     {
         // $create = kategori::select('id', 'jenis_kategori')->get();
         $foreign = kategori::all();
-<<<<<<< HEAD
-        return view('book/createdatabook', ['kategori' => $foreign]);
-=======
         return view('admin.daftar-buku.create', ['kategori' => $foreign]);
->>>>>>> 6e2ac5e25c5d5adaeb4b50bf319a418a3c9d4786
     }
 
     /**

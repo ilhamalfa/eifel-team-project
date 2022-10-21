@@ -51,6 +51,8 @@ Route::put('/tablebook/{id}', [TableBookController::class, 'update']);
 Route::get('/tablebook/{id}', [TableBookController::class, 'delete']);
 
 //Route Table Kategori
+Route::resource('kategori', TableKategoriController::class);
+
 
 Route::get('/tablekategori', [TableKategoriController::class, 'index']);
 
