@@ -32,7 +32,7 @@
                                     <td>{{ $list->harga }}</td>
                                     <td>{{ $list->kategori->jenis_kategori }}</td>
                                     <td>
-                                        <a href="updatedatabook/{{ $list->id }}" class="btn btn-warning text-dark">Edit</a>
+                                        <a href="{{ url('buku/'. $list->id. '/edit') }}" class="btn btn-warning text-dark">Edit</a>
                                         <a href="tablebook/{{ $list->id }}" class="btn btn-danger" onclick="return confirm('yakin mau hapus')">Hapus</a>
                                     </td>
                                 </tr>
