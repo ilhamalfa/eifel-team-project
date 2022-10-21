@@ -16,7 +16,14 @@ class TableBookController extends Controller
     public function index()
     {
         $data = Buku::all();
+<<<<<<< HEAD
         return view('book/tablebook', ['listbuku' => $data]);
+=======
+
+        return view('admin.daftar-buku.index', [
+            'listbuku' => $data
+        ]);
+>>>>>>> 6e2ac5e25c5d5adaeb4b50bf319a418a3c9d4786
     }
 
     /**
@@ -28,7 +35,11 @@ class TableBookController extends Controller
     {
         // $create = kategori::select('id', 'jenis_kategori')->get();
         $foreign = kategori::all();
+<<<<<<< HEAD
         return view('book/createdatabook', ['kategori' => $foreign]);
+=======
+        return view('admin.daftar-buku.create', ['kategori' => $foreign]);
+>>>>>>> 6e2ac5e25c5d5adaeb4b50bf319a418a3c9d4786
     }
 
     /**
@@ -39,8 +50,19 @@ class TableBookController extends Controller
      */
     public function store(Request $request)
     {
-        $buku = Buku::create($request->all());
-        return redirect('/tablebook');
+        $validate = $request->validate([
+            'judul' => 'required',
+            'penulis' => 'required|string',
+            'penerbit' => 'required|string',
+            'sinopsis' => 'required|string',
+            'jumlah' => 'required|integer',
+            'harga' => 'required|integer',
+            'kategori_id' => 'required|integer'
+        ]);
+
+        Buku::create($validate);
+
+        return redirect(url('buku'));
     }
 
     /**

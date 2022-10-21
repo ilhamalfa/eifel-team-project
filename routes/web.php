@@ -30,13 +30,13 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Route::get('/tablebook', function () {
 //     return view('tablebook');
 // });
 
 //Route Table Book
+Route::resource('buku', TableBookController::class);
 
 Route::get('/tablebook', [TableBookController::class, 'index']);
 
@@ -61,3 +61,7 @@ Route::post('/tablekategori', [TableKategoriController::class, 'store']);
 Route::get('/updatedatakategori/{id}', [TableKategoriController::class, 'edit']);
 
 Route::put('/tablekategori/{id}', [TableKategoriController::class, 'update']);
+
+Route::get('/tablekategori/{id}', [TableKategoriController::class, 'delete']);
+
+Auth::routes();

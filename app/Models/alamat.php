@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Customer extends Model
+class alamat extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
 
-    public function pemesanan(){
-        return $this -> hasMany(Pemesanan::class);
+    public function user(){
+        return $this -> belongsTo(User::class);
     }
 }

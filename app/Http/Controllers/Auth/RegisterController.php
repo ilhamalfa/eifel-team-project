@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Customer;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -22,7 +21,9 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
+
     use RegistersUsers;
+
     /**
      * Where to redirect users after registration.
      *
@@ -48,10 +49,13 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        // dd($data);
+        
         return Validator::make($data, [
-            'username' => ['required', 'string', 'alpha_dash', 'unique:customers', 'max:25', 'min:3'],
+            'username' => ['required', 'string', 'max:25', 'min:5', 'alpha_dash', 'unique:users'],
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:customers'],
+            'nomor_Telp' => ['required', 'max:12', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -64,11 +68,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return Customer::create([
+        // dd($data);
+
+        return User::create([
             'username' => $data['username'],
             'name' => $data['name'],
+            'nomor_Telp' => $data['nomor_Telp'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        // return User::create($data);
     }
 }
