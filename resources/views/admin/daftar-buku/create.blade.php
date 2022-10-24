@@ -76,6 +76,7 @@
                                     </span>
                                 @enderror
                             </div>
+                            <a href="{{ url('buku') }}" class="btn btn-warning text-dark">Cancel</a>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
