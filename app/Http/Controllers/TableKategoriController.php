@@ -61,7 +61,7 @@ class TableKategoriController extends Controller
     public function edit(Request $request, $id)
     {
         $kategori = kategori::findOrFail($id);
-        return view('kategori/updatedatakategori', ['kategori' => $kategori]);
+        return view('admin.daftar-kategori.edit', ['kategori' => $kategori]);
     }
 
     /**
@@ -75,7 +75,7 @@ class TableKategoriController extends Controller
     {
         $kategori = kategori::findOrFail($id);
         $kategori->update($request->all());
-        return redirect('/tablekategori');
+        return redirect(url('kategori'));
     }
 
     /**
@@ -89,6 +89,6 @@ class TableKategoriController extends Controller
         // dd($id);
         $kategori = kategori::find($id);
         $kategori->delete();
-        return redirect('tablekategori');
+        return redirect(url('kategori'));
     }
 }

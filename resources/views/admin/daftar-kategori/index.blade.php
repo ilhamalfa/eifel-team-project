@@ -22,8 +22,8 @@
                                     <th scope="row">{{ $loop->iteration }}</th>
                                     <td>{{ $list->jenis_kategori }}</td>
                                     <td>
-                                        <a href="updatedatakategori/{{ $list->id }}" class="btn btn-warning text-dark">Edit</a>
-                                        <a href="tablekategori/{{ $list->id }}" class="btn btn-danger" onclick="return confirm('Anda yakin akan menghapus data?')">Hapus</a>
+                                        <a href="{{ url('kategori/'. $list->id. '/edit') }}" class="btn btn-warning text-dark">Edit</a>
+                                        {{-- <a href="tablekategori/{{ $list->id }}" class="btn btn-danger" onclick="return confirm('Anda yakin akan menghapus data?')">Hapus</a> --}}
                                     </td>
                                 </tr>
                                 @endforeach
