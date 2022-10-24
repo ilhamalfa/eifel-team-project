@@ -5,7 +5,7 @@
         <div class="col mb-4">
             <div class="card">
                 <div class="card-body p-4">
-                <h2 class="font-weight-bolder mb-3">Daftar Buku</h1>
+                <h3 class="font-weight-bolder mb-3">Daftar Buku</h3>
                     <a href="{{ url('buku/create') }}" class="btn btn-primary">Tambah Data</a>
                     <div class="row">
                         <table class="table text-center">

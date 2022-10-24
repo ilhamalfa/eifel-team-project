@@ -15,7 +15,7 @@ class TableKategoriController extends Controller
     public function index()
     {
         $data = kategori::all();
-        return view('kategori/tablekategori', ['listkategori' => $data]);
+        return view('admin.daftar-kategori.index', ['listkategori' => $data]);
     }
 
     /**
@@ -26,7 +26,7 @@ class TableKategoriController extends Controller
     public function create()
     {
         $data = kategori::all();
-        return view('kategori/createdatakategori', compact('data'));
+        return view('admin.daftar-kategori.create', compact('data'));
     }
 
     /**
@@ -38,7 +38,7 @@ class TableKategoriController extends Controller
     public function store(Request $request)
     {
         $kategori = kategori::create($request->all());
-        return redirect('/tablekategori');
+        return redirect('kategori');
     }
 
     /**
