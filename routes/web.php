@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\bukuController;
 use App\Http\Controllers\TableBookController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -32,7 +33,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //     return view('tablebook');
 // });
 
-Route::resource('buku', TableBookController::class);
+Route::resource('buku', bukuController::class);
 
 Route::get('/tablebook', [TableBookController::class, 'index']);
 

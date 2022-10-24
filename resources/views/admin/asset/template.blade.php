@@ -44,6 +44,8 @@ Soft UI Dashboard by Creative Tim
         @include('admin.asset.navbar')
         
         <div class="container-fluid py-4">
+            {{-- flash massage --}}
+            @include('admin.asset.flashmassage')
             @yield('main')
 
             <footer class="footer pt-3  ">

@@ -6,7 +6,7 @@ use App\Models\Buku;
 use App\Models\kategori;
 use Illuminate\Http\Request;
 
-class TableBookController extends Controller
+class bukuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,6 +31,7 @@ class TableBookController extends Controller
     {
         // $create = kategori::select('id', 'jenis_kategori')->get();
         $foreign = kategori::all();
+
         return view('admin.daftar-buku.create', [
             'kategori' => $foreign
         ]);
@@ -44,6 +45,8 @@ class TableBookController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
+
         $validate = $request->validate([
             'judul' => 'required',
             'penulis' => 'required|string',
@@ -56,7 +59,7 @@ class TableBookController extends Controller
 
         Buku::create($validate);
 
-        return redirect(url('buku'));
+        return redirect(url('buku'))->with('success', 'Berhasil Menambahkan Data');
     }
 
     /**
@@ -76,7 +79,7 @@ class TableBookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $id)
+    public function edit($id)
     {
         $buku = Buku::findOrFail($id);
         $kategori = kategori::all();
@@ -111,7 +114,7 @@ class TableBookController extends Controller
 
         $buku->update($validate);
 
-        return redirect(url('buku'));
+        return redirect(url('buku'))->with('success', 'Berhasil Mengedit Data');
     }
 
     /**
@@ -122,10 +125,10 @@ class TableBookController extends Controller
      */
     public function destroy($id)
     {
-        $buku = Buku::findorFail($id);
+        $buku = Buku::find($id);
 
         $buku->delete($buku);
 
-        return redirect(url('buku'));
+        return redirect(url('buku'))->with('success', 'Berhasil Menghapus Data');
     }
 }

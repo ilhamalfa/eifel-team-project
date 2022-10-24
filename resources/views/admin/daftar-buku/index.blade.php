@@ -32,8 +32,12 @@
                                     <td>{{ $list->harga }}</td>
                                     <td>{{ $list->kategori->jenis_kategori }}</td>
                                     <td>
-                                        <a href="{{ url('buku/'. $list->id. '/edit') }}" class="btn btn-warning text-dark">Edit</a>
-                                        <a href="tablebook/{{ $list->id }}" class="btn btn-danger" onclick="return confirm('yakin mau hapus')">Hapus</a>
+                                        <a href="{{ url('buku/'. $list->id . '/edit') }}" class="btn btn-warning text-dark">Edit</a>
+                                        <a href="{{ url('buku/'. $list->id ) }}" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('delete-buku-{{ $list->id }}').submit();">Hapus</a>
+                                        <form id="delete-buku-{{ $list->id }}"  action="{{ url('buku/'. $list->id ) }}"method="POST" onclick="return confirm('yakin mau hapus')">
+                                            @csrf
+                                            @method('delete')
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach
