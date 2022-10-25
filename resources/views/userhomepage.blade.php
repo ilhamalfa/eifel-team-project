@@ -44,7 +44,7 @@
                 <div class="ms-5 me-5">
                     <div class="dropdown-center mb-3">
                         <button class="btn my-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{ asset('template/assets/img/bruce-mars.jpg') }}" alt="profile_image" class="w-40 border-radius-lg shadow-sm">
+                            <img src="{{ asset('template/assets/img/bruce-mars.jpg') }}" alt="profile_image" class="w-40 border-radius-lg shadow-sm " title="Ambil Dari Database">
                             <br>
                             <p class="mt-2 mb-2">Profile</p>
                         </button>
