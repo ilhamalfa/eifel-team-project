@@ -42,3 +42,7 @@ Route::get('/tablebook/{id}', [TableBookController::class, 'delete']);
 Route::get('userhomepage', function () {
     return view('userhomepage');
 });
+
+Route::get('userprofile', function () {
+    return view('userprofile');
+});

@@ -1,850 +1,509 @@
-<!--
-=========================================================
-* Soft UI Dashboard - v1.0.6
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('template/assets/img/apple-icon.png') }}">
-  <link rel="icon" type="image/png" href="{{ asset('template/assets/img/favicon.png') }}">
-  <title>
-    User Homepage
-  </title>
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-  <!-- Nucleo Icons -->
-  <link href="{{ asset('template/assets/css/nucleo-icons.css') }}" rel="stylesheet" />
-  <link href="{{ asset('template/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
-  <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="{{ asset('template/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
-  <!-- CSS Files -->
-  <link id="pagestyle" href="{{ asset('template/assets/css/soft-ui-dashboard.css?v=1.0.6') }}" rel="stylesheet" />
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Homepage</title>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Nucleo Icons -->
+    <link href="{{ asset('template/assets/css/nucleo-icons.css') }}" rel="stylesheet" />
+    <link href="{{ asset('template/assets/css/nucleo-svg.css" rel="stylesheet') }}" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    {{-- <link href="{{ asset('template/assets/css/nucleo-svg.css') }}" rel="stylesheet" /> --}}
+    <link rel="stylesheet" href="{{ asset('template/logo/css/all.min.css') }}">
+    <!-- CSS Files -->
+    <link id="pagestyle" href="{{ asset('template/assets/css/soft-ui-dashboard.css?v=1.0.6') }}" rel="stylesheet" />
+    </head>
+<body>
+    {{-- Side Bar --}}
+    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
+        {{-- Sidebar Head --}}
+        <div class="sidenav-header">
+            <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+                {{-- <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html " target="_blank">
+                    
+                </a> --}}
+            {{-- Logo --}}
+            <div class="navbar-brand m-0">
+                <img src="../assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
+                <span class="ms-1 font-weight-bold">Kelompok7Bookstore</span>
+            </div>
+        {{-- Logo End --}}
+        </div>
+        {{-- Sidebar Head End --}}
 
-<body class="g-sidenav-show bg-gray-100">
-    <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-    <!-- Navbar -->
-    <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
-        <div class="container-fluid py-1">
-            <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
-                <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                    <div class="input-group">
-                    <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" placeholder="Type here...">
-                    </div>
-                </div>
-                <ul class="navbar-nav justify-content-end">
-                    {{-- Lonceng --}}
-                    <li class="nav-item dropdown pe-2 d-flex align-items-center">
-                        <a href="javascript:;" class="nav-link text-white p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa fa-bell cursor-pointer"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end px-2 py-3 ms-n4" aria-labelledby="dropdownMenuButton">
-                            {{-- Isi Pesan --}}
-                            <li>
-                                <a class="dropdown-item border-radius-md" href="javascript:;">
-                                <div class="d-flex py-1">
-                                    <div class="avatar avatar-sm bg-gradient-secondary me-3 my-auto">
-                                    <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                        <title>credit-card</title>
-                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                                            <g transform="translate(1716.000000, 291.000000)">
-                                            <g transform="translate(453.000000, 454.000000)">
-                                                <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
-                                                <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
-                                            </g>
-                                            </g>
-                                        </g>
-                                        </g>
-                                    </svg>
-                                    </div>
-                                    <div class="d-flex flex-column justify-content-center">
-                                    <h6 class="text-sm font-weight-normal mb-1">
-                                        Payment successfully completed
-                                    </h6>
-                                    <p class="text-xs text-secondary mb-0">
-                                        <i class="fa fa-clock me-1"></i>
-                                        2 days
-                                    </p>
-                                    </div>
-                                </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item border-radius-md" href="javascript:;">
-                                <div class="d-flex py-1">
-                                    <div class="avatar avatar-sm bg-gradient-secondary me-3 my-auto">
-                                    <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                        <title>credit-card</title>
-                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                                            <g transform="translate(1716.000000, 291.000000)">
-                                            <g transform="translate(453.000000, 454.000000)">
-                                                <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
-                                                <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
-                                            </g>
-                                            </g>
-                                        </g>
-                                        </g>
-                                    </svg>
-                                    </div>
-                                    <div class="d-flex flex-column justify-content-center">
-                                    <h6 class="text-sm font-weight-normal mb-1">
-                                        Payment successfully completed
-                                    </h6>
-                                    <p class="text-xs text-secondary mb-0">
-                                        <i class="fa fa-clock me-1"></i>
-                                        2 days
-                                    </p>
-                                    </div>
-                                </div>
-                                </a>
-                            </li>
-                            <li>
-                            <a class="dropdown-item border-radius-md" href="javascript:;">
-                                <div class="d-flex py-1">
-                                <div class="avatar avatar-sm bg-gradient-secondary me-3 my-auto">
-                                    <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <title>credit-card</title>
-                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                                        <g transform="translate(1716.000000, 291.000000)">
-                                            <g transform="translate(453.000000, 454.000000)">
-                                            <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
-                                            <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
-                                            </g>
-                                        </g>
-                                        </g>
-                                    </g>
-                                    </svg>
-                                </div>
-                                <div class="d-flex flex-column justify-content-center">
-                                    <h6 class="text-sm font-weight-normal mb-1">
-                                    Payment successfully completed
-                                    </h6>
-                                    <p class="text-xs text-secondary mb-0">
-                                    <i class="fa fa-clock me-1"></i>
-                                    2 days
-                                    </p>
-                                </div>
-                                </div>
-                            </a>
-                            </li>
-                            {{-- Isi Pesan End --}}
+        <hr class="horizontal dark mt-0">
+
+        {{-- Sidebar Body --}}
+        <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+            <ul class="navbar-nav">
+                {{-- Profile --}}
+                <div class="ms-5 me-5">
+                    <div class="dropdown-center mb-3">
+                        <button class="btn my-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{{ asset('template/assets/img/bruce-mars.jpg') }}" alt="profile_image" class="w-40 border-radius-lg shadow-sm">
+                            <br>
+                            <p class="mt-2 mb-2">Profile</p>
+                        </button>
+                        <ul class="dropdown-menu mt-0">
+                            <li><a class="dropdown-item" href="userprofile">My Profile</a></li>
+                            <li><a class="dropdown-item" href="#">History</a></li>
+                            <li><a class="dropdown-item" href="#">Log Out</a></li>
                         </ul>
-                    </li>
-                    {{-- Lonceng End --}}
-                </ul>
+                    </div>
+                </div>
+                {{-- Profile End --}}
+                <li class="nav-item">
+                    <div class="container">
+                        <div class="row ms-2 me-2">
+                            {{-- Homepage --}}
+                            {{-- <button type="button" class="btn col-md-12" href="userhomepage">
+                                <i class="fa-solid fa-store"></i>
+                                <p>Homepage</p>
+                            </button> --}}
+                            <a href="userhomepage" class="btn col-md-12">
+                                <i class="fa-solid fa-store"></i>
+                                <p>Homepage</p>
+                            </a>
+                            {{-- Homepage End --}}
+
+                            {{-- Cart --}}
+                            <button type="button" class="btn col-md-12">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <p>List cart</p>
+                            </button>
+                            {{-- Cart End --}}
+                        </div>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+        {{-- Need Help --}}
+        <div class="sidenav-footer mx-3 mt-5">
+            <div class="card card-background shadow-none card-background-mask-secondary" id="sidenavCard">
+                <div class="full-background" style="background-image: url('../assets/img/curved-images/white-curved.jpg')"></div>
+                    <div class="card-body text-start p-3 w-100">
+                        <div class="icon icon-shape icon-sm bg-white shadow text-center mb-3 d-flex align-items-center justify-content-center border-radius-md">
+                            <i class="ni ni-diamond text-dark text-gradient text-lg top-0" aria-hidden="true" id="sidenavCardIcon"></i>
+                        </div>
+                        <div class="docs-info">
+                            <h6 class="text-white up mb-0">Need help?</h6>
+                            <p class="text-xs font-weight-bold">Please contactus</p>
+                            <a href="" target="_blank" class="btn btn-white btn-sm w-100 mb-0">ContactUs</a>
+                        </div>
+                </div>
             </div>
         </div>
-    </nav>
-    <!-- End Navbar -->
+        {{-- Need Help End --}}
+        {{-- Sidebar Body End --}}
+    </aside>
+    {{-- Side Bar End --}}
 
-    {{-- Menu dan caribuku --}}
-    <div class="container-fluid">
-        <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('../assets/img/curved-images/curved0.jpg'); background-position-y: 50%;">
-            <span class="mask bg-gradient-primary opacity-6"></span>
+    {{-- Content --}}
+    <div class="main-content position-relative bg-gray-100">
+        {{-- Carousel --}}
+        <div class="container">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner rounded-3 mt-5 mb-5">
+                    <div class="carousel-item active">
+                        <img src="{{ asset('template/media/carousel1.jpg') }}" class="d-block w-100" alt="..." width="500" height="200">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ asset('template/media/carousel2.jpg') }}" class="d-block w-100" alt="..." width="500" height="200">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ asset('template/media/carousel3.jpg') }}" class="d-block w-100" alt="..." width="500" height="200">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        {{-- Carousel End --}}
+
+        {{-- Book --}}
+        <div class="container">
             <div class="row">
-                <div class="col-md-10">
-                    <div class="card card-body blur shadow-blur mx-9 mt-n5 py-1 overflow-hidden">
-                        <h6 class="my-auto">SELAMAT DATANG DI BOOKSTORE</h6>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class=" align-items-center">
-                        <div class="input-group">
-                        <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" placeholder="Type here...">
+                {{-- Book1 --}}
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                    <div class="card card-blog card-plain">
+                        <div class="position-relative">
+                            <a class="d-block shadow-xl border-radius-xl">
+                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                            </a>
+                        </div>
+                        <div class="card-body px-1 pb-0">
+                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
+                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
+                            <a href="">
+                                <h5>Nama Buku</h5>
+                            </a>
+                            <a href="">
+                                <p>See Details</p>
+                            </a>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
+                                <h6>OR</h6>
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    {{-- Menu dan caribuku end --}}
-
-    {{-- List Buku --}}
-    <div class="container-fluid py-4">
-        <div class="row">
-            <div class="col-12 mt-4">
-                <div class="card mb-4">
-                    <div class="card-header pb-0 p-3">
-                        <h6 class="mb-1">Category</h6>
-                        <p class="text-sm">bisa berubah sesuai kategori yang kita pilih</p>
+                {{-- Book1 End --}}
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                    <div class="card card-blog card-plain">
+                        <div class="position-relative">
+                            <a class="d-block shadow-xl border-radius-xl">
+                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                            </a>
+                        </div>
+                        <div class="card-body px-1 pb-0">
+                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
+                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
+                            <a href="">
+                                <h5>Nama Buku</h5>
+                            </a>
+                            <a href="">
+                                <p>See Details</p>
+                            </a>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
+                                <h6>OR</h6>
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                                <div class="card card-blog card-plain">
-                                    <div class="position-relative">
-                                        <a class="d-block shadow-xl border-radius-xl">
-                                            <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                        </a>
-                                    </div>
-                                    <div class="card-body px-1 pb-0">
-                                        <p class="text-gradient text-dark mb-2 text-sm">Rating</p>
-                                        <a href="javascript:;">
-                                            <h5>
-                                            Modern
-                                            </h5>
-                                        </a>
-                                        <p class="mb-4 text-sm">
-                                            As Uber works through a huge amount of internal management turmoil.
-                                        </p>
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                                            <div class="avatar-group mt-2">
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                                                    <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                                                    <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                                                    <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                                                    <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                    <div class="card card-blog card-plain">
+                        <div class="position-relative">
+                            <a class="d-block shadow-xl border-radius-xl">
+                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                            </a>
+                        </div>
+                        <div class="card-body px-1 pb-0">
+                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
+                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
+                            <a href="">
+                                <h5>Nama Buku</h5>
+                            </a>
+                            <a href="">
+                                <p>See Details</p>
+                            </a>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
+                                <h6>OR</h6>
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </button>
                             </div>
-                            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                                <div class="card card-blog card-plain">
-                                    <div class="position-relative">
-                                        <a class="d-block shadow-xl border-radius-xl">
-                                            <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                        </a>
-                                    </div>
-                                    <div class="card-body px-1 pb-0">
-                                        <p class="text-gradient text-dark mb-2 text-sm">Rating</p>
-                                        <a href="javascript:;">
-                                            <h5>
-                                            Modern
-                                            </h5>
-                                        </a>
-                                        <p class="mb-4 text-sm">
-                                            As Uber works through a huge amount of internal management turmoil.
-                                        </p>
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                                            <div class="avatar-group mt-2">
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                                                    <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                                                    <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                                                    <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                                                    <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                    <div class="card card-blog card-plain">
+                        <div class="position-relative">
+                            <a class="d-block shadow-xl border-radius-xl">
+                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                            </a>
+                        </div>
+                        <div class="card-body px-1 pb-0">
+                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
+                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
+                            <a href="">
+                                <h5>Nama Buku</h5>
+                            </a>
+                            <a href="">
+                                <p>See Details</p>
+                            </a>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
+                                <h6>OR</h6>
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </button>
                             </div>
-                            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                                <div class="card card-blog card-plain">
-                                    <div class="position-relative">
-                                        <a class="d-block shadow-xl border-radius-xl">
-                                            <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                        </a>
-                                    </div>
-                                    <div class="card-body px-1 pb-0">
-                                        <p class="text-gradient text-dark mb-2 text-sm">Rating</p>
-                                        <a href="javascript:;">
-                                            <h5>
-                                            Modern
-                                            </h5>
-                                        </a>
-                                        <p class="mb-4 text-sm">
-                                            As Uber works through a huge amount of internal management turmoil.
-                                        </p>
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                                            <div class="avatar-group mt-2">
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                                                    <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                                                    <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                                                    <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                                                    <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 mt-5">
+                    <div class="card card-blog card-plain">
+                        <div class="position-relative">
+                            <a class="d-block shadow-xl border-radius-xl">
+                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                            </a>
+                        </div>
+                        <div class="card-body px-1 pb-0">
+                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
+                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
+                            <a href="">
+                                <h5>Nama Buku</h5>
+                            </a>
+                            <a href="">
+                                <p>See Details</p>
+                            </a>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
+                                <h6>OR</h6>
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </button>
                             </div>
-                            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                                <div class="card card-blog card-plain">
-                                    <div class="position-relative">
-                                        <a class="d-block shadow-xl border-radius-xl">
-                                            <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                        </a>
-                                    </div>
-                                    <div class="card-body px-1 pb-0">
-                                        <p class="text-gradient text-dark mb-2 text-sm">Rating</p>
-                                        <a href="javascript:;">
-                                            <h5>
-                                            Modern
-                                            </h5>
-                                        </a>
-                                        <p class="mb-4 text-sm">
-                                            As Uber works through a huge amount of internal management turmoil.
-                                        </p>
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                                            <div class="avatar-group mt-2">
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                                                    <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                                                    <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                                                    <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                                                    <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 mt-5">
+                    <div class="card card-blog card-plain">
+                        <div class="position-relative">
+                            <a class="d-block shadow-xl border-radius-xl">
+                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                            </a>
+                        </div>
+                        <div class="card-body px-1 pb-0">
+                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
+                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
+                            <a href="">
+                                <h5>Nama Buku</h5>
+                            </a>
+                            <a href="">
+                                <p>See Details</p>
+                            </a>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
+                                <h6>OR</h6>
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </button>
                             </div>
-                            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 my-5">
-                                <div class="card card-blog card-plain">
-                                    <div class="position-relative">
-                                        <a class="d-block shadow-xl border-radius-xl">
-                                            <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                        </a>
-                                    </div>
-                                    <div class="card-body px-1 pb-0">
-                                        <p class="text-gradient text-dark mb-2 text-sm">Rating</p>
-                                        <a href="javascript:;">
-                                            <h5>
-                                            Modern
-                                            </h5>
-                                        </a>
-                                        <p class="mb-4 text-sm">
-                                            As Uber works through a huge amount of internal management turmoil.
-                                        </p>
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                                            <div class="avatar-group mt-2">
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                                                    <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                                                    <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                                                    <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                                                    <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 mt-5">
+                    <div class="card card-blog card-plain">
+                        <div class="position-relative">
+                            <a class="d-block shadow-xl border-radius-xl">
+                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                            </a>
+                        </div>
+                        <div class="card-body px-1 pb-0">
+                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
+                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
+                            <a href="">
+                                <h5>Nama Buku</h5>
+                            </a>
+                            <a href="">
+                                <p>See Details</p>
+                            </a>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
+                                <h6>OR</h6>
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </button>
                             </div>
-                            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 my-5">
-                                <div class="card card-blog card-plain">
-                                    <div class="position-relative">
-                                        <a class="d-block shadow-xl border-radius-xl">
-                                            <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                        </a>
-                                    </div>
-                                    <div class="card-body px-1 pb-0">
-                                        <p class="text-gradient text-dark mb-2 text-sm">Rating</p>
-                                        <a href="javascript:;">
-                                            <h5>
-                                            Modern
-                                            </h5>
-                                        </a>
-                                        <p class="mb-4 text-sm">
-                                            As Uber works through a huge amount of internal management turmoil.
-                                        </p>
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                                            <div class="avatar-group mt-2">
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                                                    <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                                                    <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                                                    <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                                                    <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 mt-5">
+                    <div class="card card-blog card-plain">
+                        <div class="position-relative">
+                            <a class="d-block shadow-xl border-radius-xl">
+                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                            </a>
+                        </div>
+                        <div class="card-body px-1 pb-0">
+                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
+                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
+                            <a href="">
+                                <h5>Nama Buku</h5>
+                            </a>
+                            <a href="">
+                                <p>See Details</p>
+                            </a>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
+                                <h6>OR</h6>
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </button>
                             </div>
-                            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 my-5">
-                                <div class="card card-blog card-plain">
-                                    <div class="position-relative">
-                                        <a class="d-block shadow-xl border-radius-xl">
-                                            <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                        </a>
-                                    </div>
-                                    <div class="card-body px-1 pb-0">
-                                        <p class="text-gradient text-dark mb-2 text-sm">Rating</p>
-                                        <a href="javascript:;">
-                                            <h5>
-                                            Modern
-                                            </h5>
-                                        </a>
-                                        <p class="mb-4 text-sm">
-                                            As Uber works through a huge amount of internal management turmoil.
-                                        </p>
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                                            <div class="avatar-group mt-2">
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                                                    <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                                                    <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                                                    <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                                                    <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 mt-5">
+                    <div class="card card-blog card-plain">
+                        <div class="position-relative">
+                            <a class="d-block shadow-xl border-radius-xl">
+                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                            </a>
+                        </div>
+                        <div class="card-body px-1 pb-0">
+                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
+                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
+                            <a href="">
+                                <h5>Nama Buku</h5>
+                            </a>
+                            <a href="">
+                                <p>See Details</p>
+                            </a>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
+                                <h6>OR</h6>
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </button>
                             </div>
-                            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 my-5">
-                                <div class="card card-blog card-plain">
-                                    <div class="position-relative">
-                                        <a class="d-block shadow-xl border-radius-xl">
-                                            <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                        </a>
-                                    </div>
-                                    <div class="card-body px-1 pb-0">
-                                        <p class="text-gradient text-dark mb-2 text-sm">Rating</p>
-                                        <a href="javascript:;">
-                                            <h5>
-                                            Modern
-                                            </h5>
-                                        </a>
-                                        <p class="mb-4 text-sm">
-                                            As Uber works through a huge amount of internal management turmoil.
-                                        </p>
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                                            <div class="avatar-group mt-2">
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                                                    <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                                                    <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                                                    <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                                                    <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 mt-5">
+                    <div class="card card-blog card-plain">
+                        <div class="position-relative">
+                            <a class="d-block shadow-xl border-radius-xl">
+                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                            </a>
+                        </div>
+                        <div class="card-body px-1 pb-0">
+                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
+                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
+                            <a href="">
+                                <h5>Nama Buku</h5>
+                            </a>
+                            <a href="">
+                                <p>See Details</p>
+                            </a>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
+                                <h6>OR</h6>
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </button>
                             </div>
-                            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 my-5">
-                                <div class="card card-blog card-plain">
-                                    <div class="position-relative">
-                                        <a class="d-block shadow-xl border-radius-xl">
-                                            <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                        </a>
-                                    </div>
-                                    <div class="card-body px-1 pb-0">
-                                        <p class="text-gradient text-dark mb-2 text-sm">Rating</p>
-                                        <a href="javascript:;">
-                                            <h5>
-                                            Modern
-                                            </h5>
-                                        </a>
-                                        <p class="mb-4 text-sm">
-                                            As Uber works through a huge amount of internal management turmoil.
-                                        </p>
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                                            <div class="avatar-group mt-2">
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                                                    <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                                                    <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                                                    <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                                                    <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 mt-5">
+                    <div class="card card-blog card-plain">
+                        <div class="position-relative">
+                            <a class="d-block shadow-xl border-radius-xl">
+                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                            </a>
+                        </div>
+                        <div class="card-body px-1 pb-0">
+                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
+                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
+                            <a href="">
+                                <h5>Nama Buku</h5>
+                            </a>
+                            <a href="">
+                                <p>See Details</p>
+                            </a>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
+                                <h6>OR</h6>
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </button>
                             </div>
-                            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 my-5">
-                                <div class="card card-blog card-plain">
-                                    <div class="position-relative">
-                                        <a class="d-block shadow-xl border-radius-xl">
-                                            <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                        </a>
-                                    </div>
-                                    <div class="card-body px-1 pb-0">
-                                        <p class="text-gradient text-dark mb-2 text-sm">Rating</p>
-                                        <a href="javascript:;">
-                                            <h5>
-                                            Modern
-                                            </h5>
-                                        </a>
-                                        <p class="mb-4 text-sm">
-                                            As Uber works through a huge amount of internal management turmoil.
-                                        </p>
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                                            <div class="avatar-group mt-2">
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                                                    <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                                                    <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                                                    <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                                                    <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 my-5">
-                                <div class="card card-blog card-plain">
-                                    <div class="position-relative">
-                                        <a class="d-block shadow-xl border-radius-xl">
-                                            <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                        </a>
-                                    </div>
-                                    <div class="card-body px-1 pb-0">
-                                        <p class="text-gradient text-dark mb-2 text-sm">Rating</p>
-                                        <a href="javascript:;">
-                                            <h5>
-                                            Modern
-                                            </h5>
-                                        </a>
-                                        <p class="mb-4 text-sm">
-                                            As Uber works through a huge amount of internal management turmoil.
-                                        </p>
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                                            <div class="avatar-group mt-2">
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                                                    <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                                                    <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                                                    <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                                                    <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 my-5">
-                                <div class="card card-blog card-plain">
-                                    <div class="position-relative">
-                                        <a class="d-block shadow-xl border-radius-xl">
-                                            <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                        </a>
-                                    </div>
-                                    <div class="card-body px-1 pb-0">
-                                        <p class="text-gradient text-dark mb-2 text-sm">Rating</p>
-                                        <a href="javascript:;">
-                                            <h5>
-                                            Modern
-                                            </h5>
-                                        </a>
-                                        <p class="mb-4 text-sm">
-                                            As Uber works through a huge amount of internal management turmoil.
-                                        </p>
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                                            <div class="avatar-group mt-2">
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                                                    <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                                                    <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                                                    <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                                                    <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 my-5">
-                                <div class="card card-blog card-plain">
-                                    <div class="position-relative">
-                                        <a class="d-block shadow-xl border-radius-xl">
-                                            <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                        </a>
-                                    </div>
-                                    <div class="card-body px-1 pb-0">
-                                        <p class="text-gradient text-dark mb-2 text-sm">Rating</p>
-                                        <a href="javascript:;">
-                                            <h5>
-                                            Modern
-                                            </h5>
-                                        </a>
-                                        <p class="mb-4 text-sm">
-                                            As Uber works through a huge amount of internal management turmoil.
-                                        </p>
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                                            <div class="avatar-group mt-2">
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                                                    <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                                                    <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                                                    <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                                                    <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 my-5">
-                                <div class="card card-blog card-plain">
-                                    <div class="position-relative">
-                                        <a class="d-block shadow-xl border-radius-xl">
-                                            <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                        </a>
-                                    </div>
-                                    <div class="card-body px-1 pb-0">
-                                        <p class="text-gradient text-dark mb-2 text-sm">Rating</p>
-                                        <a href="javascript:;">
-                                            <h5>
-                                            Modern
-                                            </h5>
-                                        </a>
-                                        <p class="mb-4 text-sm">
-                                            As Uber works through a huge amount of internal management turmoil.
-                                        </p>
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                                            <div class="avatar-group mt-2">
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                                                    <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                                                    <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                                                    <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                                                    <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 my-5">
-                                <div class="card card-blog card-plain">
-                                    <div class="position-relative">
-                                        <a class="d-block shadow-xl border-radius-xl">
-                                            <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                        </a>
-                                    </div>
-                                    <div class="card-body px-1 pb-0">
-                                        <p class="text-gradient text-dark mb-2 text-sm">Rating</p>
-                                        <a href="javascript:;">
-                                            <h5>
-                                            Modern
-                                            </h5>
-                                        </a>
-                                        <p class="mb-4 text-sm">
-                                            As Uber works through a huge amount of internal management turmoil.
-                                        </p>
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                                            <div class="avatar-group mt-2">
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                                                    <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                                                    <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                                                    <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                                                    <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 my-5">
-                                <div class="card card-blog card-plain">
-                                    <div class="position-relative">
-                                        <a class="d-block shadow-xl border-radius-xl">
-                                            <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                        </a>
-                                    </div>
-                                    <div class="card-body px-1 pb-0">
-                                        <p class="text-gradient text-dark mb-2 text-sm">Rating</p>
-                                        <a href="javascript:;">
-                                            <h5>
-                                            Modern
-                                            </h5>
-                                        </a>
-                                        <p class="mb-4 text-sm">
-                                            As Uber works through a huge amount of internal management turmoil.
-                                        </p>
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                                            <div class="avatar-group mt-2">
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                                                    <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                                                    <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                                                    <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                                </a>
-                                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                                                    <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 mt-5">
+                    <div class="card card-blog card-plain">
+                        <div class="position-relative">
+                            <a class="d-block shadow-xl border-radius-xl">
+                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                            </a>
+                        </div>
+                        <div class="card-body px-1 pb-0">
+                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
+                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
+                            <a href="">
+                                <h5>Nama Buku</h5>
+                            </a>
+                            <a href="">
+                                <p>See Details</p>
+                            </a>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
+                                <h6>OR</h6>
+                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    {{-- List Buku End --}}
+        {{-- Book End --}}
 
-
-    {{-- Copyright --}}
-      <footer class="footer pt-3  ">
-        <div class="container-fluid">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6 mb-lg-0 mb-4">
-              <div class="copyright text-center text-sm text-muted text-lg-start">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>,
-                made with <i class="fa fa-heart"></i> by
-                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
-                for a better web.
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
-                </li>
-              </ul>
-            </div>
-          </div>
+        {{-- Copyright --}}
+        <div class="container bg-white rounded-3 mt-5">
+            <footer class="footer pt-3  ">
+                <div class="container-fluid">
+                <div class="row align-items-center justify-content-lg-between">
+                    <div class="col-lg-6 mb-lg-0 mb-4">
+                    <div class="copyright text-center text-sm text-muted text-lg-start">
+                        © <script>
+                        document.write(new Date().getFullYear())
+                        </script>,
+                        made with <i class="fa fa-heart"></i> by
+                        <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Kelompok7</a>
+                    </div>
+                    </div>
+                    <div class="col-lg-6">
+                    <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                        <li class="nav-item">
+                        <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                        <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                        <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+                </div>
+            </footer>
         </div>
-      </footer>
+        {{-- Copyright End --}}
     </div>
-  </div>
-  {{-- Copyright End --}}
+    {{-- Content End --}}
 
-  <!--   Core JS Files   -->
-  <script src="{{ asset('template/assets/js/core/popper.min.js') }}"></script>
-  <script src="{{ asset('template/assets/js/core/bootstrap.min.js') }}"></script>
-  <script src="{{ asset('template/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
-  <script src="{{ asset('template/assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
-  <script>
-    var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-      var options = {
-        damping: '0.5'
-      }
-      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
-  </script>
-  <!-- Github buttons -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="{{ asset('template/assets/js/soft-ui-dashboard.min.js?v=1.0.6') }}"></script>
+    <!--   Core JS Files   -->
+    <script src="{{ asset('template/assets/js/core/popper.min.js') }}"></script>
+    <script src="{{ asset('template/assets/js/core/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('template/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('template/assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
+    <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+            damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+    </script>
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="{{ asset('template/assets/js/soft-ui-dashboard.min.js?v=1.0.6') }}"></script>
 </body>
-
 </html>
