@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\bukuController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\TableBookController;
 use App\Http\Controllers\TableKategoriController;
 use Illuminate\Support\Facades\Auth;
@@ -67,3 +68,11 @@ Route::put('/tablekategori/{id}', [TableKategoriController::class, 'update']);
 Route::get('/tablekategori/{id}', [TableKategoriController::class, 'delete']);
 
 Auth::routes();
+
+Route::get('/customer', [CustomerController::class, 'index']);
+
+Route::post('/customer/cart/store', [CustomerController::class, 'store']);
+
+Route::get('/customer/cart/', [CustomerController::class, 'list']);
+
+Route::delete('/customer/cart/{id}', [CustomerController::class, 'deleteCart']);

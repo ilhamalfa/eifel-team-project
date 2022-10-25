@@ -16,7 +16,7 @@ class kategoriSeeder extends Seeder
     public function run()
     {
         // Membuat Faker
-        $faker = fake('ko_KR');
+        $faker = fake('id_ID');
 
         for($i = 0; $i < 3; $i++){
             kategori::create([

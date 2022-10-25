@@ -51,4 +51,8 @@ class User extends Authenticatable
     public function alamat(){
         return $this -> hasMany(alamat::class);
     }
+
+    public function cart(){
+        return $this -> hasMany(cart::class);
+    }
 }
