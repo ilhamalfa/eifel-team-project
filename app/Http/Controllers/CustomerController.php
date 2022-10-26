@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Buku;
 use App\Models\cart;
+use App\Models\detailPemesanan;
+use App\Models\Pemesanan;
 use Darryldecode\Cart\Cart as CartCart;
 use Illuminate\Http\Request;
 
@@ -44,7 +46,7 @@ class CustomerController extends Controller
 
     public function list(){
         $cart = Cart::where('user_id', '=', auth()->user()->id)->get();
-        $total = Cart::sum('harga'); //Total Harga
+        $total = Cart::where('user_id', '=', auth()->user()->id)->sum('harga'); //Total Harga
 
         return view('customer.cart', [
             'carts' => $cart,
@@ -59,5 +61,69 @@ class CustomerController extends Controller
         $cart->delete($cart);
 
         return redirect(url('customer/cart'))->with('success', 'Berhasil Menghapus Data');
+    }
+
+    public function checkOut(Request $request)
+    {
+        // $id = $request();
+        // return $request;
+        // $count = count($request->item);
+        $total_buku = 0;
+        $total_harga = 0;
+        // dd($count);
+
+        // for($i = 1; $i <= $count; $i++){
+            
+        // }
+
+        // Menghitung Jumlah Buku dan Jumlah Harga
+        foreach($request->item as $key=>$value){
+            // echo $value;
+            $cart = cart::where('id', $value)->first();
+            
+            $total_buku = $total_buku + $cart->jumlah;
+            $total_harga = $total_harga + $cart->harga;
+        }
+
+        $date = date('Y-m-d H:i:s');
+
+        Pemesanan::create([
+            'user_id' => auth()->user()->id,
+            'totalBuku' => $total_buku,
+            'totalHarga' => $total_harga,
+            'ongkir' => 1000,
+            'tanggalPemesanan' => $date,
+            'metodePembayaran' => 'Gopai',
+            'statusPemesanan' => 'Pending'
+        ]);
+
+        $pemesanan = Pemesanan::where('user_id', auth()->user()->id)->where('tanggalPemesanan', $date )->first();
+
+        // dd($pemesanan);
+        foreach($request->item as $key=>$value){
+            // echo $value;
+            $cart = cart::where('id', $value)->first();
+            
+            detailPemesanan::create([
+                'pemesanan_id' => $pemesanan->id,
+                'buku_id' => $cart->buku_id,
+                'qty' => $cart->jumlah,
+                'harga' => $cart->harga
+            ]);
+
+            // Update Jumlah Buku
+            $buku = Buku::find($cart->buku_id);
+
+            $buku->update([
+                'jumlah' => $buku->jumlah - $cart->qty 
+            ]);
+
+            // Delete Item Di Cart
+            $cart_delete = cart::find($cart->id);
+
+            $cart_delete->delete();
+        }
+
+        return redirect(url('customer/cart'))->with('success', 'Berhasil Check-out');
     }
 }

@@ -76,3 +76,5 @@ Route::post('/customer/cart/store', [CustomerController::class, 'store']);
 Route::get('/customer/cart/', [CustomerController::class, 'list']);
 
 Route::delete('/customer/cart/{id}', [CustomerController::class, 'deleteCart']);
+
+Route::post('/checkout', [CustomerController::class, 'checkOut']);

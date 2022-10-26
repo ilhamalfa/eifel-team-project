@@ -12,6 +12,7 @@
     <table>
         <thead>
             <tr>
+                <th>Check</th>
                 <th>#</th>
                 <th>Judul</th>
                 <th>Jumlah</th>
@@ -20,22 +21,27 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($carts as $cart)
-            <tr>
-                <td>{{ $loop->iteration }}</td>
-                <td>{{ $cart->buku->judul }}</td>
-                <td>{{ $cart->jumlah }}</td>
-                <td>{{ $cart->harga }}</td>
-                <td>
-                    <form action="{{ url('customer/cart/'. $cart->id) }}" method="POST">
-                        @csrf
-                        @method('delete')
-                        <button type="submit">Hapus</button>
-                    </form>
-                    {{-- <a href="/customer/cart/delete/{{ $cart->id }}" class="btn" onclick="return confirm('yakin mau hapus')">Hapus</a> --}}
-                </td>
-            </tr>
-            @endforeach
+            <form action="{{ url('checkout') }}" method="POST">
+                @csrf
+                @foreach ($carts as $cart)
+                <tr>
+                    <td><input type="checkbox" name="item[]" id="item[]" value="{{ $cart->id }}"></td>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $cart->buku->judul }}</td>
+                    <td>{{ $cart->jumlah }}</td>
+                    <td>{{ $cart->harga }}</td>
+                    <td>
+                        {{-- <form action="{{ url('customer/cart/'. $cart->id) }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button type="submit">Hapus</button>
+                        </form> --}}
+                        {{-- <a href="/customer/cart/delete/{{ $cart->id }}" class="btn" onclick="return confirm('yakin mau hapus')">Hapus</a> --}}
+                    </td>
+                </tr>
+                @endforeach
+                <button type="submit">Check-out</button>
+            </form>
         </tbody>
     </table>
 </body>
