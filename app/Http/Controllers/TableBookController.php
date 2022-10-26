@@ -13,9 +13,21 @@ class TableBookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Buku::all();
+        // dd($request->search);
+        if($request->has('search')){
+            $data = Buku::where('judul','LIKE','%'.$request->search.'%')->orWhere('penulis','LIKE','%'.$request->search.'%')->orWhere('penerbit','LIKE','%'.$request->search.'%')->get();
+        }else{
+            $data = Buku::all();
+        }
+        // dd($data);
+        
+        
+        // $data = Buku::all();
+        // $caribuku = $request->caribuku;
+        // dd($caribuku);
+        // $data = Buku::where('penulis', 'LIKE', '%'.$caribuku.'%');
         return view('tablebook', ['listbuku' => $data]);
     }
 
