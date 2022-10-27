@@ -59,3 +59,12 @@ Route::get('userhomepage', function () {
 Route::get('userprofile', function () {
     return view('userprofile');
 });
+
+// Customer Homepage
+Route::get('customer', [CustomerController::class, 'index']);
+
+// Cart Store
+Route::post('customer/cart/store', [CustomerController::class, 'store']);
+
+// Customer Cart View
+Route::get('customer/cart', [CustomerController::class, 'list']);

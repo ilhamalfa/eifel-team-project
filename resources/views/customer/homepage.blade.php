@@ -31,7 +31,7 @@
             <div class="container">
                 <div class="row">
                     {{-- Book1 --}}
-                    @foreach ($bukus as $buku)
+                    @foreach ($listbuku as $buku)
                     <div class="col-xl-3 col-md-6 mb-xl-0 mt-4">
                         <div class="card card-blog card-plain">
                             <div class="position-relative">
@@ -54,7 +54,7 @@
                                     <form action="{{ url('customer/cart/store') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $buku->id }}">
-                                        <input type="number" name="qty" id="qty" min="1" max="{{ $buku->jumlah }}" value="1">
+                                        <input type="hidden" name="qty" id="qty" min="1" max="{{ $buku->jumlah }}" value="1">
                                         <button type="submit" class="btn btn-outline-primary btn-sm mb-0">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </button>

@@ -18,17 +18,42 @@
     <link id="pagestyle" href="{{ asset('template/assets/css/soft-ui-dashboard.css?v=1.0.6') }}" rel="stylesheet" />
     </head>
 <body>
-    
-    {{-- Side Bar --}}
+
+    {{-- Sidebar --}}
     @include('customer.layouts.sidebar')
-    {{-- Side Bar End --}}
 
     {{-- Content --}}
     <div class="main-content position-relative bg-gray-100">
+        {{-- Search --}}
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-md-2">
+                    
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Kategory
+                        </button>
+                        <ul class="dropdown-menu">
+                            @foreach($kategori as $kat)
+                            <li><a class="dropdown-item" href="{{ url('customer?kategori='.$kat->id) }}">{{ $kat->jenis_kategori }}</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <form class="d-flex" action="{{ url('customer') }}" method="GET">
+                        <input type="search" class="form-control" placeholder="Search Book" aria-label="Username" name="search">
+                        <button class="btn btn-outline-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{-- search End --}}
+
         @yield('main')
 
         {{-- Copyright --}}
-        <div class="container bg-white rounded-3 mt-5">
+        <div class="container bg-white rounded-3 mt-12">
             <footer class="footer pt-3  ">
                 <div class="container-fluid">
                 <div class="row align-items-center justify-content-lg-between">

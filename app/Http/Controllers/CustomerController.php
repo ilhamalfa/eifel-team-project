@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Buku;
 use App\Models\cart;
 use App\Models\detailPemesanan;
+use App\Models\kategori;
 use App\Models\Pemesanan;
 use Darryldecode\Cart\Cart as CartCart;
 use Illuminate\Http\Request;
@@ -12,12 +13,21 @@ use Illuminate\Support\Facades\Http;
 
 class CustomerController extends Controller
 {
-    public function index(){
-        $data = Buku::all();
+    public function index(Request $request){
+        if($request->has('search')){
+            $data = Buku::where('judul','LIKE','%'.$request->search.'%')->orWhere('penulis','LIKE','%'.$request->search.'%')->orWhere('penerbit','LIKE','%'.$request->search.'%')->get();
+        }else if($request->has('kategori')){
+            $data = Buku::where('kategori_id','=',$request->kategori)->get();
+        }else{
+            $data = Buku::all();
+        }
+
+        $kategori = kategori::all();
         $jml_cart = Cart::where('user_id', '=', auth()->user()->id)->count();
         
         return view('customer.homepage', [
-            'bukus' => $data,
+            'listbuku' => $data, 
+            'kategori'=> $kategori,
             'jml_cart' => $jml_cart,
         ]);
     }
@@ -49,9 +59,11 @@ class CustomerController extends Controller
         $jml_cart = Cart::where('user_id', '=', auth()->user()->id)->count();
         $cart = Cart::where('user_id', '=', auth()->user()->id)->get();
         $total = Cart::where('user_id', '=', auth()->user()->id)->sum('harga'); //Total Harga
+        $kategori = kategori::all();
 
         return view('customer.cart', [
             'jml_cart' => $jml_cart,
+            'kategori'=> $kategori,
             'carts' => $cart,
             'total' => $total
         ]);
