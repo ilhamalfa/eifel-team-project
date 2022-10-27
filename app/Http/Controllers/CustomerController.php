@@ -8,6 +8,7 @@ use App\Models\detailPemesanan;
 use App\Models\Pemesanan;
 use Darryldecode\Cart\Cart as CartCart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class CustomerController extends Controller
 {
@@ -126,4 +127,17 @@ class CustomerController extends Controller
 
         return redirect(url('customer/cart'))->with('success', 'Berhasil Check-out');
     }
+
+    public function alamat(){
+        $provinsi = Http::get('https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json')->json();
+
+        return view('customer.alamat',[
+            'provinsi' => $provinsi
+        ]);
+    }
+
+    public function storeAlamat(Request $request){
+        dd($request);
+    }
+
 }
