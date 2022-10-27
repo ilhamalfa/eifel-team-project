@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    {{ auth()->user()->name }} <br>
-    Total Harga : {{ $total }}<br>
-    <table>
+@extends('customer.layouts.layout')
+
+@section('main')
+<div class="container">            
+    <form action="{{ url('checkout') }}" method="POST">
+    @csrf
+    <table class="table">
         <thead>
             <tr>
-                <th>Check</th>
+                <th></th>
                 <th>#</th>
                 <th>Judul</th>
                 <th>Jumlah</th>
@@ -21,8 +16,7 @@
             </tr>
         </thead>
         <tbody>
-            <form action="{{ url('checkout') }}" method="POST">
-                @csrf
+
                 @foreach ($carts as $cart)
                 <tr>
                     <td><input type="checkbox" name="item[]" id="item[]" value="{{ $cart->id }}"></td>
@@ -40,9 +34,13 @@
                     </td>
                 </tr>
                 @endforeach
-                <button type="submit">Check-out</button>
-            </form>
-        </tbody>
-    </table>
-</body>
-</html>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary">Check-out</button>
+            </div>
+        </div>
+    </form>
+</div>
+@endsection

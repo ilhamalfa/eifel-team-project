@@ -14,11 +14,11 @@ class CustomerController extends Controller
 {
     public function index(){
         $data = Buku::all();
-        $cart = Cart::where('user_id', '=', auth()->user()->id)->count();
+        $jml_cart = Cart::where('user_id', '=', auth()->user()->id)->count();
         
-        return view('customer.index', [
+        return view('customer.homepage', [
             'bukus' => $data,
-            'cart' => $cart,
+            'jml_cart' => $jml_cart,
         ]);
     }
 
@@ -46,10 +46,12 @@ class CustomerController extends Controller
     }
 
     public function list(){
+        $jml_cart = Cart::where('user_id', '=', auth()->user()->id)->count();
         $cart = Cart::where('user_id', '=', auth()->user()->id)->get();
         $total = Cart::where('user_id', '=', auth()->user()->id)->sum('harga'); //Total Harga
 
         return view('customer.cart', [
+            'jml_cart' => $jml_cart,
             'carts' => $cart,
             'total' => $total
         ]);
