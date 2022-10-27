@@ -13,9 +13,21 @@ class TableBookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Buku::all();
+        // dd($request->search);
+        if($request->has('search')){
+            $data = Buku::where('judul','LIKE','%'.$request->search.'%')->orWhere('penulis','LIKE','%'.$request->search.'%')->orWhere('penerbit','LIKE','%'.$request->search.'%')->get();
+        }else{
+            $data = Buku::all();
+        }
+        // dd($data);
+        
+        
+        // $data = Buku::all();
+        // $caribuku = $request->caribuku;
+        // dd($caribuku);
+        // $data = Buku::where('penulis', 'LIKE', '%'.$caribuku.'%');
 
         return view('admin.daftar-buku.index', [
             'listbuku' => $data
@@ -31,7 +43,9 @@ class TableBookController extends Controller
     {
         // $create = kategori::select('id', 'jenis_kategori')->get();
         $foreign = kategori::all();
-        return view('admin.daftar-buku.create', ['kategori' => $foreign]);
+        return view('admin.daftar-buku.create', [
+            'kategori' => $foreign
+        ]);
     }
 
     /**
@@ -76,9 +90,13 @@ class TableBookController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        $buku = Buku::with('kategori')->findOrFail($id);
-        $kategori = kategori::where('id', '!=', $buku->kategori_id)->get(['id', 'jenis_kategori']);
-        return view('book/updatedatabook', ['buku' => $buku, 'kategori' => $kategori]);
+        $buku = Buku::findOrFail($id);
+        $kategori = kategori::all();
+
+        return view('admin.daftar-buku.edit', [
+            'buku' => $buku, 
+            'kategori' => $kategori
+        ]);
     }
 
     /**
@@ -90,9 +108,22 @@ class TableBookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $buku = Buku::findOrFail($id);
-        $buku->update($request->all());
-        return redirect('/tablebook');
+        // dd($request);
+        $validate = $request->validate([
+            'judul' => 'required',
+            'penulis' => 'required|string',
+            'penerbit' => 'required|string',
+            'sinopsis' => 'required|string',
+            'jumlah' => 'required|integer',
+            'harga' => 'required|integer',
+            'kategori_id' => 'required|integer'
+        ]);
+
+        $buku = Buku::find($id);
+
+        $buku->update($validate);
+
+        return redirect(url('buku'));
     }
 
     /**
@@ -101,11 +132,12 @@ class TableBookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete($id)
+    public function destroy($id)
     {
-        // dd($id);
-        $buku = Buku::find($id);
-        $buku->delete();
-        return redirect('tablebook');
+        $buku = Buku::findorFail($id);
+
+        $buku->delete($buku);
+
+        return redirect(url('buku'));
     }
 }

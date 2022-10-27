@@ -28,4 +28,8 @@ class Buku extends Model
     public function detail_pemesanan(){
         return $this -> hasMany(detailPemesanan::class);
     }
+
+    public function cart(){
+        return $this -> hasMany(cart::class);
+    }
 }

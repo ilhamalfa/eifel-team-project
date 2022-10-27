@@ -16,7 +16,7 @@ class bukuSeeder extends Seeder
     public function run()
     {
         // Membuat Faker
-        $faker = fake('ja_JP');
+        $faker = fake('id_ID');
 
         for ($i = 0; $i < 10; $i++) {
             Buku::create([
