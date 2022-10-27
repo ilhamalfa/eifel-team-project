@@ -8,6 +8,10 @@
 </head>
 <body>
     <div class="container tabel">
+        <form action="tablebook" method="GET">
+            <input type="search" class="" name="search" placeholder="Cari Buku">
+            <button type="submit" class="">Search</button>
+        </form>
         <table class="table text-center">
             <thead>
                 <tr>

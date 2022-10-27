@@ -5,7 +5,7 @@
         <div class="col mb-4">
             <div class="card">
                 <div class="card-body p-4">
-                    <h2 class="font-weight-bolder mb-3">Daftar Buku</h1>
+                    <h2 class="font-weight-bolder mb-3">Data Buku Baru</h1>
                     <div class="row">
                         <form action="{{ url('buku') }}" method="POST">
                             @csrf

@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\bukuController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\TableBookController;
 use App\Http\Controllers\TableKategoriController;
+use App\Http\Controllers\UserHomepageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -35,8 +38,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //     return view('tablebook');
 // });
 
-//Route Table Book
-Route::resource('buku', TableBookController::class);
+Route::resource('buku', bukuController::class);
 
 Route::get('/tablebook', [TableBookController::class, 'index']);
 
@@ -50,20 +52,19 @@ Route::put('/tablebook/{id}', [TableBookController::class, 'update']);
 
 Route::get('/tablebook/{id}', [TableBookController::class, 'delete']);
 
-//Route Table Kategori
-Route::resource('kategori', TableKategoriController::class);
+Route::get('userhomepage', function () {
+    return view('userhomepage');
+});
 
+Route::get('userprofile', function () {
+    return view('userprofile');
+});
 
-Route::get('/tablekategori', [TableKategoriController::class, 'index']);
+// Customer Homepage
+Route::get('customer', [CustomerController::class, 'index']);
 
-Route::get('/createdatakategori', [TableKategoriController::class, 'create']);
+// Cart Store
+Route::post('customer/cart/store', [CustomerController::class, 'store']);
 
-Route::post('/tablekategori', [TableKategoriController::class, 'store']);
-
-Route::get('/updatedatakategori/{id}', [TableKategoriController::class, 'edit']);
-
-Route::put('/tablekategori/{id}', [TableKategoriController::class, 'update']);
-
-Route::get('/tablekategori/{id}', [TableKategoriController::class, 'delete']);
-
-Auth::routes();
+// Customer Cart View
+Route::get('customer/cart', [CustomerController::class, 'list']);
