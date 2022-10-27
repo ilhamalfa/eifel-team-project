@@ -105,6 +105,32 @@
 
     {{-- Content --}}
     <div class="main-content position-relative bg-gray-100">
+        {{-- Search --}}
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-md-2">
+                    
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Kategory
+                        </button>
+                        <ul class="dropdown-menu">
+                            @foreach($kategori as $kat)
+                            <li><a class="dropdown-item" href="{{ url('userhomepage?kategori='.$kat->id) }}">{{ $kat->jenis_kategori }}</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <form class="d-flex" action="userhomepage" method="GET">
+                        <input type="search" class="form-control" placeholder="Search Book" aria-label="Username" name="search">
+                        <button class="btn btn-outline-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{-- search End --}}
+
         {{-- Carousel --}}
         <div class="container">
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -135,6 +161,7 @@
         <div class="container">
             <div class="row">
                 {{-- Book1 --}}
+                @foreach ($listbuku as $list)
                 <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
                     <div class="card card-blog card-plain">
                         <div class="position-relative">
@@ -143,14 +170,32 @@
                             </a>
                         </div>
                         <div class="card-body px-1 pb-0">
-                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
-                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
-                            <a href="">
-                                <h5>Nama Buku</h5>
-                            </a>
-                            <a href="">
-                                <p>See Details</p>
-                            </a>
+                            <div>
+                                <h5>{{ $list->judul }}</h5>
+                            </div>
+                            <div class="mb-2">
+                                <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
+                                <p class="text-gradient text-dark mb-2 text-sm">Kategory: {{ $list->kategori->jenis_kategori }}</p>
+                                <p class="text-gradient text-dark mb-2 text-sm">Stock: {{ $list->jumlah }}</p>
+                            </div>
+                            <div class="dropdown mb-5">
+                                <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    See Details
+                                </button>
+                                <ul class="dropdown-menu">
+                                    {{-- <li><p class="dropdown-item">Sinopsis</p></li>
+                                    <li></li>
+                                    <li></li> --}}
+                                    <div class="container">
+                                        <p>{{ $list->sinopsis }}</p>
+                                        <p>Penulis: {{ $list->penulis }}</p>
+                                        <p>Penerbit: {{ $list->penerbit }}</p>
+                                    </div>
+                                </ul>
+                            </div>
+                            <div class="ms-auto">
+                                <p>Rp {{ $list->harga }}</p>
+                            </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
                                 <h6>OR</h6>
@@ -161,299 +206,14 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
                 {{-- Book1 End --}}
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                    <div class="card card-blog card-plain">
-                        <div class="position-relative">
-                            <a class="d-block shadow-xl border-radius-xl">
-                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                            </a>
-                        </div>
-                        <div class="card-body px-1 pb-0">
-                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
-                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
-                            <a href="">
-                                <h5>Nama Buku</h5>
-                            </a>
-                            <a href="">
-                                <p>See Details</p>
-                            </a>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
-                                <h6>OR</h6>
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                    <div class="card card-blog card-plain">
-                        <div class="position-relative">
-                            <a class="d-block shadow-xl border-radius-xl">
-                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                            </a>
-                        </div>
-                        <div class="card-body px-1 pb-0">
-                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
-                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
-                            <a href="">
-                                <h5>Nama Buku</h5>
-                            </a>
-                            <a href="">
-                                <p>See Details</p>
-                            </a>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
-                                <h6>OR</h6>
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                    <div class="card card-blog card-plain">
-                        <div class="position-relative">
-                            <a class="d-block shadow-xl border-radius-xl">
-                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                            </a>
-                        </div>
-                        <div class="card-body px-1 pb-0">
-                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
-                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
-                            <a href="">
-                                <h5>Nama Buku</h5>
-                            </a>
-                            <a href="">
-                                <p>See Details</p>
-                            </a>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
-                                <h6>OR</h6>
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 mt-5">
-                    <div class="card card-blog card-plain">
-                        <div class="position-relative">
-                            <a class="d-block shadow-xl border-radius-xl">
-                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                            </a>
-                        </div>
-                        <div class="card-body px-1 pb-0">
-                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
-                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
-                            <a href="">
-                                <h5>Nama Buku</h5>
-                            </a>
-                            <a href="">
-                                <p>See Details</p>
-                            </a>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
-                                <h6>OR</h6>
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 mt-5">
-                    <div class="card card-blog card-plain">
-                        <div class="position-relative">
-                            <a class="d-block shadow-xl border-radius-xl">
-                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                            </a>
-                        </div>
-                        <div class="card-body px-1 pb-0">
-                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
-                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
-                            <a href="">
-                                <h5>Nama Buku</h5>
-                            </a>
-                            <a href="">
-                                <p>See Details</p>
-                            </a>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
-                                <h6>OR</h6>
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 mt-5">
-                    <div class="card card-blog card-plain">
-                        <div class="position-relative">
-                            <a class="d-block shadow-xl border-radius-xl">
-                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                            </a>
-                        </div>
-                        <div class="card-body px-1 pb-0">
-                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
-                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
-                            <a href="">
-                                <h5>Nama Buku</h5>
-                            </a>
-                            <a href="">
-                                <p>See Details</p>
-                            </a>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
-                                <h6>OR</h6>
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 mt-5">
-                    <div class="card card-blog card-plain">
-                        <div class="position-relative">
-                            <a class="d-block shadow-xl border-radius-xl">
-                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                            </a>
-                        </div>
-                        <div class="card-body px-1 pb-0">
-                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
-                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
-                            <a href="">
-                                <h5>Nama Buku</h5>
-                            </a>
-                            <a href="">
-                                <p>See Details</p>
-                            </a>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
-                                <h6>OR</h6>
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 mt-5">
-                    <div class="card card-blog card-plain">
-                        <div class="position-relative">
-                            <a class="d-block shadow-xl border-radius-xl">
-                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                            </a>
-                        </div>
-                        <div class="card-body px-1 pb-0">
-                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
-                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
-                            <a href="">
-                                <h5>Nama Buku</h5>
-                            </a>
-                            <a href="">
-                                <p>See Details</p>
-                            </a>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
-                                <h6>OR</h6>
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 mt-5">
-                    <div class="card card-blog card-plain">
-                        <div class="position-relative">
-                            <a class="d-block shadow-xl border-radius-xl">
-                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                            </a>
-                        </div>
-                        <div class="card-body px-1 pb-0">
-                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
-                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
-                            <a href="">
-                                <h5>Nama Buku</h5>
-                            </a>
-                            <a href="">
-                                <p>See Details</p>
-                            </a>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
-                                <h6>OR</h6>
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 mt-5">
-                    <div class="card card-blog card-plain">
-                        <div class="position-relative">
-                            <a class="d-block shadow-xl border-radius-xl">
-                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                            </a>
-                        </div>
-                        <div class="card-body px-1 pb-0">
-                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
-                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
-                            <a href="">
-                                <h5>Nama Buku</h5>
-                            </a>
-                            <a href="">
-                                <p>See Details</p>
-                            </a>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
-                                <h6>OR</h6>
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 mt-5">
-                    <div class="card card-blog card-plain">
-                        <div class="position-relative">
-                            <a class="d-block shadow-xl border-radius-xl">
-                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                            </a>
-                        </div>
-                        <div class="card-body px-1 pb-0">
-                            <p class="text-gradient text-dark mb-2 text-sm">Rating  </p>
-                            <p class="text-gradient text-dark mb-2 text-sm">Kategory  </p>
-                            <a href="">
-                                <h5>Nama Buku</h5>
-                            </a>
-                            <a href="">
-                                <p>See Details</p>
-                            </a>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Buy Now!</button>
-                                <h6>OR</h6>
-                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         {{-- Book End --}}
 
         {{-- Copyright --}}
-        <div class="container bg-white rounded-3 mt-5">
+        <div class="container bg-white rounded-3 mt-12">
             <footer class="footer pt-3  ">
                 <div class="container-fluid">
                 <div class="row align-items-center justify-content-lg-between">
