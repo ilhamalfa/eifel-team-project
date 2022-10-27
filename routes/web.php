@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TableBookController;
+use App\Http\Controllers\UserHomepageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -39,9 +40,11 @@ Route::put('/tablebook/{id}', [TableBookController::class, 'update']);
 
 Route::get('/tablebook/{id}', [TableBookController::class, 'delete']);
 
-Route::get('userhomepage', function () {
-    return view('userhomepage');
-});
+// Route::get('userhomepage', function () {
+//     return view('userhomepage');
+// });
+// Route Userhomepage
+Route::get('/userhomepage', [UserHomepageController::class, 'index']);
 
 Route::get('userprofile', function () {
     return view('userprofile');
