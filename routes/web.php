@@ -5,6 +5,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\TableBookController;
 use App\Http\Controllers\TableKategoriController;
 use App\Http\Controllers\UserHomepageController;
+use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -52,13 +53,17 @@ Route::put('/tablebook/{id}', [TableBookController::class, 'update']);
 
 Route::get('/tablebook/{id}', [TableBookController::class, 'delete']);
 
-Route::get('userhomepage', function () {
-    return view('userhomepage');
-});
+// Route::get('userhomepage', function () {
+//     return view('userhomepage');
+// });
+
+Route::get('/userhomepage', [UserHomepageController::class, 'index']);
 
 Route::get('userprofile', function () {
     return view('userprofile');
 });
+
+Route::put('/userprofile/{id}', [UserProfileController::class, 'update']);
 
 // Customer Homepage
 Route::get('customer', [CustomerController::class, 'index']);
