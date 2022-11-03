@@ -30,7 +30,7 @@
                         </button>
                         <ul class="dropdown-menu mt-0">
                             <li><a class="dropdown-item" href="userprofile">My Profile</a></li>
-                            <li><a class="dropdown-item" href="#">History</a></li>
+                            <li><a class="dropdown-item" href="history">History</a></li>
                             <li><a class="dropdown-item" href="#">Log Out</a></li>
                         </ul>
                     </div>

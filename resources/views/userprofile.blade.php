@@ -233,7 +233,7 @@
         <div class="container mb-5" id="profile">
             <div class="row">
                 {{-- Edit --}}
-                <form action="{{ url('userprofile/' . $user->id) }}" method="POST">
+                <form action="{{ url('userhomepage/update') }}" method="POST">
                     @method('put')
                     @csrf
                     <div class="mb-3">

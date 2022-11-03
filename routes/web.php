@@ -58,12 +58,16 @@ Route::get('/tablebook/{id}', [TableBookController::class, 'delete']);
 // });
 
 Route::get('/userhomepage', [UserHomepageController::class, 'index']);
+Route::post('/userhomepage/update', [UserHomepageController::class, 'update']);
 
-Route::get('userprofile', function () {
-    return view('userprofile');
-});
 
-Route::put('/userprofile/{id}', [UserProfileController::class, 'update']);
+// Route::get('userprofile', function () {
+//     return view('userprofile');
+// });
+
+// Route::get('/userprofile/{id}', [UserProfileController::class, 'update']);
+Route::get('userprofile', [UserHomepageController::class, 'userprofile']);
+
 
 // Customer Homepage
 Route::get('customer', [CustomerController::class, 'index']);
@@ -73,3 +77,5 @@ Route::post('customer/cart/store', [CustomerController::class, 'store']);
 
 // Customer Cart View
 Route::get('customer/cart', [CustomerController::class, 'list']);
+
+Route::get('history', [CustomerController::class, 'history']);
