@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-body p-4">
                 <div class="row">
-                    <table class="table text-center">
+                    <table class="table text-center fs-6">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>

@@ -68,6 +68,7 @@ Route::post('/userhomepage/update', [UserHomepageController::class, 'update']);
 // Route::get('/userprofile/{id}', [UserProfileController::class, 'update']);
 Route::get('userprofile', [UserHomepageController::class, 'userprofile']);
 
+Route::resource('history', CustomerController::class);
 
 // Customer Homepage
 Route::get('customer', [CustomerController::class, 'index']);

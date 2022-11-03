@@ -162,9 +162,14 @@ class CustomerController extends Controller
     public function history(Request $request)
     {
         // dd($request);
-        $data = Pemesanan::all();
+        $kategori = kategori::all();
+        $jml_cart = Cart::where('user_id', '=', auth()->user()->id)->count();
+
+        $data = Pemesanan::where('user_id', '=', auth()->user()->id)->get();
         return view('customer.history', [
-            'listhistory' => $data
+            'listhistory' => $data,
+            'kategori' => $kategori,
+            'jml_cart' => $jml_cart,
         ]);
     }
 }
