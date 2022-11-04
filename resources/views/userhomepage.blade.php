@@ -162,7 +162,7 @@
             <div class="row">
                 {{-- Book1 --}}
                 @foreach ($listbuku as $list)
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 mt-3">
                     <div class="card card-blog card-plain">
                         <div class="position-relative">
                             <a class="d-block shadow-xl border-radius-xl">
