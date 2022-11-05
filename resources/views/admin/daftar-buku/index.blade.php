@@ -18,6 +18,7 @@
                                     <th scope="col">Jumlah</th>
                                     <th scope="col">Harga</th>
                                     <th scope="col">Kategori</th>
+                                    <th scope="col">Cover</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -31,6 +32,7 @@
                                     <td>{{ $list->jumlah }}</td>
                                     <td>{{ $list->harga }}</td>
                                     <td>{{ $list->kategori->jenis_kategori }}</td>
+                                    <td>{{ $list->cover }}</td>
                                     <td>
                                         <a href="{{ url('buku/'. $list->id . '/edit') }}" class="btn btn-warning text-dark">Edit</a>
                                         <a href="{{ url('buku/'. $list->id ) }}" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('delete-buku-{{ $list->id }}').submit();">Hapus</a>

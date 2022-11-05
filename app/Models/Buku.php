@@ -16,7 +16,8 @@ class Buku extends Model
         'sinopsis',
         'jumlah',
         'harga',
-        'kategori_id'
+        'kategori_id',
+        'cover'
     ];
 
     protected $guarded = ['id'];

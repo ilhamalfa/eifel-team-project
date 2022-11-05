@@ -233,32 +233,64 @@
         <div class="container mb-5" id="profile">
             <div class="row">
                 {{-- Edit --}}
-                <div class="card h-100 col-md-6 ms-5">
+                <form action="{{ url('userhomepage/update') }}" method="POST">
+                    @method('put')
+                    @csrf
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username">
+                        <input type="text" class="form-control w-75 @error('username') is-invalid @enderror" name="username" id="username" required value="{{ $user->username }}">
+                            @error('judul')
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                     </div>
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name">
+                        <input type="text" class="form-control w-75 @error('name') is-invalid @enderror" name="name" id="name" required value="{{ $user->name }}">
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="phone" class="form-label">Phone Number</label>
-                        <input type="text" class="form-control" id="phone">
+                        <label for="phone" class="form-label">No. Telp</label>
+                        <input type="number" class="form-control w-75 @error('nomor_Telp') is-invalid @enderror" name="nomor_Telp" id="nomor_Telp" required value="{{ $user->nomor_Telp }}">
+                            @error('nomor_Telp')
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Your Email</label>
-                        <input type="email" class="form-control" id="email">
+                        <input type="email" class="form-control w-75 @error('email') is-invalid @enderror" name="email" id="email" required value="{{ $user->email }}">
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password">
+                        <input type="password" class="form-control w-75 @error('password') is-invalid @enderror" name="password" id="password" required value="{{ $user->password }}">
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="address" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="address">
+                        <label for="address" class="form-label">Alamat</label>
+                        <input type="text" class="form-control w-75 @error('alamat') is-invalid @enderror" name="alamat" id="nomor_Telp" required value="{{ $user->alamat }}">
+                            @error('alamat')
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                     </div>
-                </div>
+                </form>
                 {{-- Edit End --}}
 
                 {{-- Profile --}}
