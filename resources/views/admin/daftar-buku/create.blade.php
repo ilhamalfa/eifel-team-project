@@ -7,7 +7,7 @@
                 <div class="card-body p-4">
                     <h2 class="font-weight-bolder mb-3">Data Buku Baru</h1>
                     <div class="row">
-                        <form action="{{ url('buku') }}" method="POST">
+                        <form action="{{ url('buku') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="judul">Judul</label>
@@ -47,7 +47,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="judul">Jumlah</label>
-                                <input type="text" class="form-control w-75 @error('jumlah') is-invalid @enderror" name="jumlah" id="jumlah" required>
+                                <input type="number" class="form-control w-75 @error('jumlah') is-invalid @enderror" name="jumlah" id="jumlah" required>
                                 @error('jumlah')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -71,6 +71,15 @@
                                     @endforeach
                                 </select>
                                 @error('kategori_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="judul">Cover</label>
+                                <input type="file" class="form-control w-75 @error('cover') is-invalid @enderror" name="cover" id="cover" required>
+                                @error('cover')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

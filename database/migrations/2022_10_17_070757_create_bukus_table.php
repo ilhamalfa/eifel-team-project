@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('jumlah');
             $table->integer('harga');
             $table->foreignId('kategori_id')->references('id')->on('kategoris');
+            $table->string('cover', 255)->nullable();
             $table->timestamps();
         });
     }
