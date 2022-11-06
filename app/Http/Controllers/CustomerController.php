@@ -143,11 +143,7 @@ class CustomerController extends Controller
     }
 
     public function alamat(){
-        $provinsi = Http::get('https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json')->json();
-
-        return view('customer.alamat',[
-            'provinsi' => $provinsi
-        ]);
+        $provinsi = Http::get('https://api.rajaongkir.com/starter/province')->json();
     }
 
     public function storeAlamat(Request $request){
