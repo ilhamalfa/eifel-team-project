@@ -80,3 +80,5 @@ Route::post('customer/cart/store', [CustomerController::class, 'store']);
 Route::get('customer/cart', [CustomerController::class, 'list']);
 
 Route::get('history', [CustomerController::class, 'history']);
+
+Route::post('/customerprofile/{id}', [CustomerController::class, 'updateprofile']);

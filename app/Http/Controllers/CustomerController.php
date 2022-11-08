@@ -7,6 +7,7 @@ use App\Models\cart;
 use App\Models\detailPemesanan;
 use App\Models\kategori;
 use App\Models\Pemesanan;
+use App\Models\User;
 use Darryldecode\Cart\Cart as CartCart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -171,5 +172,22 @@ class CustomerController extends Controller
             'kategori' => $kategori,
             'jml_cart' => $jml_cart,
         ]);
+    }
+
+    public function editprofile(Request $request)
+    {
+        $validate = $request->validate([
+            'username' => 'required',
+            'name' => 'required|string',
+            'no_Telp' => 'required',
+            'email' => 'required|string',
+            'alamat' => 'required',
+        ]);
+
+        $editprofile = User::find($id);
+
+        $editprofile->update($validate);
+
+        return redirect(url('userprofile'));
     }
 }

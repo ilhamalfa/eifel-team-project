@@ -110,7 +110,7 @@
                     </div>
                     <div class="col-auto my-auto">
                         <div class="h-100">
-                            <h5 class="mb-1">Nama Ambil Dari Database</h5>
+                            <h5 class="mb-1">{{ $user->name }}</h5>
                             <p class="mb-0 font-weight-bold text-sm">Personal Account</p>
                         </div>
                     </div>
@@ -166,7 +166,7 @@
         {{-- Header End --}}
 
         {{-- Chat --}}
-        <div class="container mt-4 mb-4" id="chat">
+        {{-- <div class="container mt-4 mb-4" id="chat">
             <div class="card h-100">
                 <div class="card-header pb-0 p-3">
                     <h6 class="mb-0">Conversations</h6>
@@ -226,7 +226,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> --}}
         {{-- Chat End --}}
 
         {{-- Edit Profile --}}
@@ -238,7 +238,7 @@
                     @csrf
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control w-75 @error('username') is-invalid @enderror" name="username" id="username" required value="{{ $user->username }}">
+                        <input type="text" class="form-control w-50 @error('username') is-invalid @enderror" name="username" id="username" required value="{{ $user->username }}">
                             @error('judul')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -247,7 +247,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control w-75 @error('name') is-invalid @enderror" name="name" id="name" required value="{{ $user->name }}">
+                        <input type="text" class="form-control w-50 @error('name') is-invalid @enderror" name="name" id="name" required value="{{ $user->name }}">
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -256,7 +256,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="form-label">No. Telp</label>
-                        <input type="number" class="form-control w-75 @error('nomor_Telp') is-invalid @enderror" name="nomor_Telp" id="nomor_Telp" required value="{{ $user->nomor_Telp }}">
+                        <input type="number" class="form-control w-50 @error('nomor_Telp') is-invalid @enderror" name="nomor_Telp" id="nomor_Telp" required value="{{ $user->nomor_Telp }}">
                             @error('nomor_Telp')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -265,7 +265,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Your Email</label>
-                        <input type="email" class="form-control w-75 @error('email') is-invalid @enderror" name="email" id="email" required value="{{ $user->email }}">
+                        <input type="email" class="form-control w-50 @error('email') is-invalid @enderror" name="email" id="email" required value="{{ $user->email }}">
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -273,23 +273,15 @@
                             @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control w-75 @error('password') is-invalid @enderror" name="password" id="password" required value="{{ $user->password }}">
-                            @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                    </div>
-                    <div class="mb-3">
                         <label for="address" class="form-label">Alamat</label>
-                        <input type="text" class="form-control w-75 @error('alamat') is-invalid @enderror" name="alamat" id="nomor_Telp" required value="{{ $user->alamat }}">
+                        <input type="text" class="form-control w-50 @error('alamat') is-invalid @enderror" name="alamat" id="nomor_Telp" required value="{{ $user->alamat }}">
                             @error('alamat')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                     </div>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
                 {{-- Edit End --}}
 
@@ -308,12 +300,11 @@
                         </p>
                         <hr class="horizontal gray-light my-4">
                         <ul class="list-group mb-8">
-                            <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Username:</strong> &nbsp; Ambil Dari Database</li>
-                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Name:</strong> &nbsp; Ambil Dari Database</li>
-                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Phone Number:</strong> &nbsp; Ambil Dari Database</li>
-                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; Ambil Dari Database</li>
-                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Password:</strong> &nbsp; </li>
-                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Address:</strong> &nbsp; Ambil Dari Database</li>
+                            <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Username:</strong> &nbsp; {{ $user->username }}</li>
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Name:</strong> &nbsp; {{ $user->name }}</li>
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Phone Number:</strong> &nbsp; {{ $user->nomor_Telp }}</li>
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; {{ $user->email }}</li>
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Address:</strong> &nbsp; {{ $user->alamat}}</li>
                         </ul>
                     </div>
                 </div>
