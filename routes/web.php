@@ -61,4 +61,20 @@ Route::post('customer/cart/store', [CustomerController::class, 'store']);
 
 // Customer Cart View
 Route::get('customer/cart', [CustomerController::class, 'list']);
+Route::post('checkout', [CustomerController::class, 'checkOut']);
+
+// History
 Route::get('history', [CustomerController::class, 'history']);
+
+// Midtrans
+Route::get('midtrans/{id}', [CustomerController::class, 'midtrans']);
+
+// Midtrans
+Route::get('midtrans/', [CustomerController::class, 'midtrans']);
+
+Route::get('/alamat', [CustomerController::class, 'alamat']);
+
+// Mengecek API get
+Route::get('wilayah', [CustomerController::class, 'wilayah']);
+
+Route::post('alamat', [CustomerController::class, 'storeAlamat']);

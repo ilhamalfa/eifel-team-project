@@ -87,6 +87,7 @@
     </div>
     {{-- Content End --}}
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <!--   Core JS Files   -->
     <script src="{{ asset('template/assets/js/core/popper.min.js') }}"></script>
     <script src="{{ asset('template/assets/js/core/bootstrap.min.js') }}"></script>
@@ -105,5 +106,10 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{ asset('template/assets/js/soft-ui-dashboard.min.js?v=1.0.6') }}"></script>
+    {{-- Ajax Midtrans --}}
+    {{-- <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-34m2Ud2sQNZX_Ukg"></script> --}}
+
+    {{-- Ajax Msifa --}}
+    <script src={{ asset('js/app.js') }}></script>
 </body>
 </html>

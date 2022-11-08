@@ -1,7 +1,7 @@
 // Alamat : 
 $.ajax({
     type: "get", //method
-    url: "/alamatAPI", //url ke controller
+    url: "/wilayah", //url ke controller
     dataType: "json",
     success: function (response) { //response membawa $wilayah dari siswa controller (wilayah) 
         // looping buat namoilin
@@ -15,7 +15,7 @@ $.ajax({
 });
 
 // Menggunakan 1 fungsi
-function daerah(jenis, id, text){
+function daerah(jenis, id){
     let dr;
 
     if(jenis == 'provinces'){
@@ -42,3 +42,26 @@ function daerah(jenis, id, text){
         }
     });
 }
+
+$('#bayar').click(function (id) { 
+    e.preventDefault();
+    
+    $.ajax({
+        type: "get",
+        url: `midtrans/${id}`,
+        dataType: "json",
+        success: function (response) {
+            snap.pay(response, {
+                // Optional
+                onSuccess: function(result){
+                },
+                // Optional
+                onPending: function(result){
+                },
+                // Optional
+                onError: function(result){
+                }
+            });
+        }
+    });
+});
