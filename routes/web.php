@@ -37,6 +37,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('buku', bukuController::class);
 
+Route::resource('kategori', TableKategoriController::class);
+
 // Route Tabel Buku
 Route::get('/tablebook', [TableBookController::class, 'index']);
 Route::get('/createdatabook', [TableBookController::class, 'create']);
