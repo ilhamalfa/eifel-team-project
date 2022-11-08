@@ -54,8 +54,13 @@ class bukuController extends Controller
             'sinopsis' => 'required|string',
             'jumlah' => 'required|integer',
             'harga' => 'required|integer',
-            'kategori_id' => 'required|integer'
+            'kategori_id' => 'required|integer',
+            'cover' => 'required'
         ]);
+
+        $ekstensi = $request->file('cover')->getClientOriginalExtension();
+        $namacover = $request->judul.'-'.now()->timestamp.'.'.$ekstensi;
+        $request->file('cover')->storeAs('cover', $namacover);
 
         Buku::create($validate);
 

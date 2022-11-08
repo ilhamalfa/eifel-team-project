@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\kategori;
 use Illuminate\Http\Request;
 
-class TableKategoriController extends Controller
+class KategoriController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class TableKategoriController extends Controller
      */
     public function index()
     {
-        $data = kategori::all();
-        return view('admin.daftar-kategori.index', ['listkategori' => $data]);
+        //
     }
 
     /**
@@ -25,8 +23,7 @@ class TableKategoriController extends Controller
      */
     public function create()
     {
-        $data = kategori::all();
-        return view('admin.daftar-kategori.create', compact('data'));
+        //
     }
 
     /**
@@ -37,8 +34,7 @@ class TableKategoriController extends Controller
      */
     public function store(Request $request)
     {
-        $kategori = kategori::create($request->all());
-        return redirect('kategori');
+        //
     }
 
     /**
@@ -58,10 +54,9 @@ class TableKategoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $id)
+    public function edit($id)
     {
-        $kategori = kategori::findOrFail($id);
-        return view('admin.daftar-kategori.edit', ['kategori' => $kategori]);
+        //
     }
 
     /**
@@ -73,9 +68,7 @@ class TableKategoriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $kategori = kategori::findOrFail($id);
-        $kategori->update($request->all());
-        return redirect(url('kategori'));
+        //
     }
 
     /**
@@ -86,23 +79,6 @@ class TableKategoriController extends Controller
      */
     public function destroy($id)
     {
-        $data = kategori::find($id);
-        
-        $data->delete($data);
-        
-        return redirect(url('kategori'));
+        //
     }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    // public function delete($id)
-    // {
-    //     // dd($id);
-    //     $kategori = kategori::find($id);
-    //     $kategori->delete();
-    //     return redirect(url('kategori'));
-    // }
 }

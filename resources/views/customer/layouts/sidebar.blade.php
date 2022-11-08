@@ -44,7 +44,7 @@
                                 <i class="fa-solid fa-store"></i>
                                 <p>Homepage</p>
                             </button> --}}
-                            <a href="userhomepage" class="btn col-md-12">
+                            <a href="customer" class="btn col-md-12">
                                 <i class="fa-solid fa-store"></i>
                                 <p>Homepage</p>
                             </a>

@@ -23,6 +23,11 @@
                                     <td>{{ $list->jenis_kategori }}</td>
                                     <td>
                                         <a href="{{ url('kategori/'. $list->id. '/edit') }}" class="btn btn-warning text-dark">Edit</a>
+                                        <button type="submit" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('delete-kategori-{{ $list->id }}').submit();">Hapus</button>
+                                        <form id="delete-kategori-{{ $list->id }}"  action="{{ url('kategori/'. $list->id ) }}"method="POST" onclick="return confirm('yakin mau hapus')">
+                                            @csrf
+                                            @method('delete')
+                                        </form>
                                         {{-- <a href="tablekategori/{{ $list->id }}" class="btn btn-danger" onclick="return confirm('Anda yakin akan menghapus data?')">Hapus</a> --}}
                                     </td>
                                 </tr>

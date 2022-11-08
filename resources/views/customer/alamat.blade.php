@@ -1,32 +1,27 @@
+@extends('customer.layouts.layout')
+
+@section('main')
 <form action="{{ url('alamat') }}" method="POST">
     @csrf
-    <select name="provinsi" id="provinsi">
-        <option value="">Pilih Alamat</option>
-        @foreach ($provinsi as $prov)
-            <option value="{{ $prov['id'] }}">{{ $prov['name'] }}</option>
-        @endforeach
-    </select>
-    <div class="form-group">
-        <label>Kab/Kota:</label><br />
-        <select name="kota" id="kota">
-            <option>Pilih</option>
+    <div class="form-floating mb-3">
+        <select class="form-control" id="provinces" name="provinces" onchange="daerah(id, value)">
         </select>
     </div>
-    <div class="form-group">
-        <label>Kecamatan:</label><br />
-        <select name="kecamatan" id="kecamatan">
-            <option>Pilih</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label>Kelurahan:</label><br />
-        <select name="kelurahan" id="kelurahan">
-            <option>Pilih</option>
-        </select>
-    </div>
-    <button type="submit">submit</button>
-</form>
-
-<script>
     
-</script>
+    <div class="form-floating mb-3">
+        <select class="form-control" id="regencies" name="regencies" onchange="daerah(id, value)">
+        </select>
+    </div>
+    
+    <div class="form-floating mb-3">
+        <select class="form-control" id="districts" name="districts" onchange="daerah(id, value)">
+        </select>
+    </div>
+    
+    <div class="form-floating mb-3">
+        <select class="form-control" id="villages" name="villages">
+        </select>
+    </div>
+    <button type="submit">simpan</button>
+</form>
+@endsection

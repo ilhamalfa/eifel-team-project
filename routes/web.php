@@ -28,46 +28,31 @@ Route::get('/admin', function () {
     return view('admin.dashboard');
 });
 
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::get('/tablebook', function () {
-//     return view('tablebook');
-// });
 
 Route::resource('buku', bukuController::class);
 
+Route::resource('kategori', TableKategoriController::class);
+
+// Route Tabel Buku
 Route::get('/tablebook', [TableBookController::class, 'index']);
-
 Route::get('/createdatabook', [TableBookController::class, 'create']);
-
 Route::post('/tablebook', [TableBookController::class, 'store']);
-
 Route::get('/updatedatabook/{id}', [TableBookController::class, 'edit']);
-
 Route::put('/tablebook/{id}', [TableBookController::class, 'update']);
-
 Route::get('/tablebook/{id}', [TableBookController::class, 'delete']);
 
-// Route::get('userhomepage', function () {
-//     return view('userhomepage');
-// });
-
+// Route Userhomepage
 Route::get('/userhomepage', [UserHomepageController::class, 'index']);
 Route::post('/userhomepage/update', [UserHomepageController::class, 'update']);
 
-
-// Route::get('userprofile', function () {
-//     return view('userprofile');
-// });
-
 // Route::get('/userprofile/{id}', [UserProfileController::class, 'update']);
 Route::get('userprofile', [UserHomepageController::class, 'userprofile']);
-
 Route::resource('history', CustomerController::class);
 
 // Customer Homepage
@@ -78,7 +63,23 @@ Route::post('customer/cart/store', [CustomerController::class, 'store']);
 
 // Customer Cart View
 Route::get('customer/cart', [CustomerController::class, 'list']);
+Route::post('checkout', [CustomerController::class, 'checkOut']);
 
 Route::get('history', [CustomerController::class, 'history']);
 
 Route::post('/customerprofile/{id}', [CustomerController::class, 'updateprofile']);
+// History
+Route::get('history', [CustomerController::class, 'history']);
+
+// Midtrans
+Route::get('midtrans/{id}', [CustomerController::class, 'midtrans']);
+
+// Midtrans
+Route::get('midtrans/', [CustomerController::class, 'midtrans']);
+
+Route::get('/alamat', [CustomerController::class, 'alamat']);
+
+// Mengecek API get
+Route::get('wilayah', [CustomerController::class, 'wilayah']);
+
+Route::post('alamat', [CustomerController::class, 'storeAlamat']);

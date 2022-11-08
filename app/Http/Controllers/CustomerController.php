@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\alamat;
 use App\Models\Buku;
 use App\Models\cart;
 use App\Models\detailPemesanan;
@@ -11,6 +12,8 @@ use App\Models\User;
 use Darryldecode\Cart\Cart as CartCart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Midtrans\Config;
+use Midtrans\Snap;
 
 class CustomerController extends Controller
 {
@@ -143,21 +146,117 @@ class CustomerController extends Controller
             $cart_delete->delete();
         }
 
-        return redirect(url('customer/cart'))->with('success', 'Berhasil Check-out');
+        $jml_cart = Cart::where('user_id', '=', auth()->user()->id)->count();
+
+        return view('customer.midtrans', [
+            'id' => $pemesanan->id,
+            'jml_cart' => $jml_cart,
+            'kategori' => kategori::all()
+        ]);
+    }
+
+    // public function midtransView(){
+    //     return \view()
+    // }
+
+    public function midtrans($id){
+                $pemesanan = Pemesanan::find($id);
+
+                // Set your Merchant Server Key
+                Config::$serverKey = 'SB-Mid-server-cq7kRbuqRQgu7TrMOWyyvTNF';
+                // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+                Config::$isProduction = false;
+                // Set sanitization on (default)
+                Config::$isSanitized = true;
+                // Set 3DS transaction for credit card to true
+                Config::$is3ds = true;
+        
+                $params = array(
+                    'transaction_details' => array(
+                        'order_id' => $pemesanan->id,
+                        'gross_amount' => $pemesanan->totalHarga + $pemesanan->ongkir,
+                    ),
+                    "enabled_payments" => [
+                        "bank_transfer", "shopeepay", "gopay"
+                    ],
+                );
+                
+                $snapToken = Snap::getSnapToken($params);
+        
+                return json_encode($snapToken);
     }
 
     public function alamat()
     {
-        $provinsi = Http::get('https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json')->json();
+        $jml_cart = Cart::where('user_id', '=', auth()->user()->id)->count();
+        $kategori = kategori::all();
 
-        return view('customer.alamat', [
-            'provinsi' => $provinsi
+        return view('customer.alamat',[
+            'kategori' => $kategori,
+            'jml_cart' => $jml_cart,
         ]);
+    }
+
+    public function wilayah(){
+        $wilayah = Http::get('https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json');
+
+        return $wilayah->json();
+        // dd($wilayah->json());
     }
 
     public function storeAlamat(Request $request)
     {
-        dd($request);
+        // dd($request);
+        $prov = Http::get('https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json');
+        $decpro = json_decode($prov, true);
+        $jml = sizeof($decpro);
+
+        for($i = 0; $i < $jml; $i++){
+            if($decpro[$i]['id'] == $request->provinces){
+                $prov = $decpro[$i]['name'];
+            }
+        }
+
+        $kota = Http::get('https://www.emsifa.com/api-wilayah-indonesia/api/regencies/'.$request->provinces.'.json');
+        $decpro = json_decode($kota, true);
+        $jml = sizeof($decpro);
+
+        for($i = 0; $i < $jml; $i++){
+            if($decpro[$i]['id'] == $request->regencies){
+                $kota = $decpro[$i]['name'];
+            }
+        }
+
+        $kec = Http::get('https://www.emsifa.com/api-wilayah-indonesia/api/districts/'.$request->regencies.'.json');
+        $decpro = json_decode($kec, true);
+        $jml = sizeof($decpro);
+
+        for($i = 0; $i < $jml; $i++){
+            if($decpro[$i]['id'] == $request->districts){
+                $kec = $decpro[$i]['name'];
+            }
+        }
+
+        $kel = Http::get('https://www.emsifa.com/api-wilayah-indonesia/api/villages/'.$request->districts.'.json');
+        $decpro = json_decode($kel, true);
+        $jml = sizeof($decpro);
+
+        for($i = 0; $i < $jml; $i++){
+            if($decpro[$i]['id'] == $request->villages){
+                $kel = $decpro[$i]['name'];
+            }
+        }
+        
+        alamat::create([
+            'provinsi' => $prov,
+            'kota_kab' => $kota,
+            'kecamatan' => $kec,
+            'kelurahan' => $kel,
+            'detail_alamat' => 'Tes',
+            'user_id' => Auth()->user()->id
+        ]);
+
+        // return \redirect('alamat')
     }
 
     public function history(Request $request)

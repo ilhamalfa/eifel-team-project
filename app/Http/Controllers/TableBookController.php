@@ -56,6 +56,8 @@ class TableBookController extends Controller
      */
     public function store(Request $request)
     {
+        
+        
         $validate = $request->validate([
             'judul' => 'required',
             'penulis' => 'required|string',
@@ -63,11 +65,20 @@ class TableBookController extends Controller
             'sinopsis' => 'required|string',
             'jumlah' => 'required|integer',
             'harga' => 'required|integer',
-            'kategori_id' => 'required|integer'
+            'kategori_id' => 'required|integer',
+            'cover' => 'required'
         ]);
 
-        Buku::create($validate);
+        $ekstensi = $request->file('cover')->getClientOriginalExtension();
+        $namacover = $request->judul.'-'.now()->timestamp.'.'.$ekstensi;
+        $request->file('cover')->storeAs('cover', $namacover);
 
+
+        
+        // $request['cover'] = $namacover;
+        // $buku = Buku::create($request->all());
+        Buku::create($validate);
+        dd($request);
         return redirect(url('buku'));
     }
 
