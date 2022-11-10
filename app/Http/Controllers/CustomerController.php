@@ -275,18 +275,22 @@ class CustomerController extends Controller
 
     public function editprofile(Request $request)
     {
-        $validate = $request->validate([
-            'username' => 'required',
-            'name' => 'required|string',
-            'no_Telp' => 'required',
-            'email' => 'required|string',
-            'alamat' => 'required',
-        ]);
+        // $validate = $request->validate([
+        //     'username' => 'required',
+        //     'name' => 'required|string',
+        //     'no_Telp' => 'required',
+        //     'email' => 'required|string',
+        //     'alamat' => 'required',
+        // ]);
 
-        $editprofile = User::find($id);
+        // $editprofile = User::find($id);
 
-        $editprofile->update($validate);
+        // $editprofile->update($validate);
 
+        // return redirect(url('userprofile'));
+
+        $editprofile = User::findOrFail($id);
+        $editprofile->editprofile($request->all());
         return redirect(url('userprofile'));
     }
 }

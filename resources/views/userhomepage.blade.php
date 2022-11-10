@@ -109,8 +109,7 @@
         <div class="container mt-3">
             <div class="row">
                 <div class="col-md-2">
-                    
-                    <div class="dropdown">
+                    <div class="dropdown mt-3">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Kategory
                         </button>
@@ -123,8 +122,8 @@
                 </div>
                 <div class="col-md-10">
                     <form class="d-flex" action="userhomepage" method="GET">
-                        <input type="search" class="form-control" placeholder="Search Book" aria-label="Username" name="search">
-                        <button class="btn btn-outline-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <input type="search" class="form-control my-3" placeholder="Search Book" aria-label="Username" name="search">
+                        <button class="btn btn-outline-primary mt-3" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                 </div>
             </div>
@@ -165,9 +164,7 @@
                 <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 mt-3">
                     <div class="card card-blog card-plain">
                         <div class="position-relative">
-                            <a class="d-block shadow-xl border-radius-xl">
-                                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                            </a>
+                            <img src="{{ asset('storage/cover/'.$list->cover) }}" alt="" class="img-fluid shadow border-radius-xl">
                         </div>
                         <div class="card-body px-1 pb-0">
                             <div>
