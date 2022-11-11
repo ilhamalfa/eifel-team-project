@@ -62,9 +62,9 @@ class CustomerController extends Controller
 
     public function list()
     {
-        $jml_cart = Cart::where('user_id', '=', auth()->user()->id)->count();
-        $cart = Cart::where('user_id', '=', auth()->user()->id)->get();
-        $total = Cart::where('user_id', '=', auth()->user()->id)->sum('harga'); //Total Harga
+        $jml_cart = cart::where('user_id', '=', auth()->user()->id)->count();
+        $cart = cart::where('user_id', '=', auth()->user()->id)->get();
+        $total = cart::where('user_id', '=', auth()->user()->id)->sum('harga'); //Total Harga
         $kategori = kategori::all();
 
         return view('customer.cart', [

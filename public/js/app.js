@@ -43,12 +43,12 @@ function daerah(jenis, id){
     });
 }
 
-$('#bayar').click(function (id) { 
+$('#bayar').click(function () { 
     e.preventDefault();
     
     $.ajax({
         type: "get",
-        url: `midtrans/${id}`,
+        url: `midtrans/`,
         dataType: "json",
         success: function (response) {
             snap.pay(response, {
