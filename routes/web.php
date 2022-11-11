@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\bukuController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\TableBookController;
 use App\Http\Controllers\TableKategoriController;
 use App\Http\Controllers\UserHomepageController;
@@ -83,3 +84,7 @@ Route::get('/alamat', [CustomerController::class, 'alamat']);
 Route::get('wilayah', [CustomerController::class, 'wilayah']);
 
 Route::post('alamat', [CustomerController::class, 'storeAlamat']);
+
+// Print
+Route::resource('pemesanan', PemesananController::class);
+Route::get('/export', [PemesananController::class, 'export']);
